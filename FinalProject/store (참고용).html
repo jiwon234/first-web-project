@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport">
+	<title>HTML + CSS 실습 5</title> 
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+	
+	<style>
+	/*color boxes*/
+		.box1 {
+			margin: 1rem;
+			border-radius: 10px; 
+		}
+		.box2 {
+			background-color: gainsboro;
+			margin:1rem;
+			border-radius: 10px; 
+		}
+		.box3 {
+			background-color: lightgray;
+			margin:1rem;
+			border-radius: 10px; 
+			justify-content: center; /* 수평 가운데 정렬 */
+            align-items: center; /* 수직 가운데 정렬 */
+		}
+	/*flex box*/
+		.container {
+			display: flex;
+			flex-direction: row;
+			margin: 10px;
+			padding: 10px;
+		}
+		#opt1 { 
+			display: flex;
+			flex-direction: row;
+		}
+		#opt2 { flex-direction: column; }
+	/*header*/
+		#top_header {
+			padding: 3rem;
+		}
+		#title {
+			display: flex;
+  			justify-content: center;
+		}
+	/*dropdown*/
+		.dropdown:hover .dropdown-menu {
+			display: block;
+			margin-top: 0;
+		}
+		.dropdown:hover .dropdown-toggle {
+			display: block;
+			margin-top: 0;
+			background-color: whitesmoke;
+			color:black;
+
+		}
+		.nav-pills .nav-link.active {
+			background-color: #6c757d; /* Bootstrap의 secondary 색상에 해당하는 색상으로 변경 */
+			color: #fff; /* 배경색이 변경되었으므로 텍스트 색상을 변경하여 가독성을 유지 */
+   		}
+		.dropdown-toggle {
+        color:black; /* 바꾸고 싶은 텍스트 색상으로 변경 */
+    	}
+		
+	/*aside*/
+		#login {
+			padding: 1rem;
+			width: 15rem;
+		}
+		#ad {
+			padding: 1rem;
+			width: 15rem;
+			text-align: center;
+		}
+	/*selection*/
+		.card {
+			display: flex;
+			flex-direction: row;
+			width: 50rem;
+			margin: 1rem;
+			padding: 1rem;
+			justify-content: center; /* 수평 가운데 정렬 */
+            align-items: center; /* 수직 가운데 정렬 */
+		}
+		.card > div {
+			padding:2rem;
+		}
+	</style>
+
+</head>
+<body>
+	<header id="top_header" class="box3">
+        <div id="title">
+			<h1>T-SHIRTS</h1>
+		</div>
+        <nav>
+			<ul class="nav nav-pills">
+				<li class="nav-item" >
+				  <a class="nav-link active" aria-current="page" href="#">HOME</a>
+				</li>
+				<li class="nav-item dropdown">
+				  <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">T-shirts</a>
+				  <ul class="dropdown-menu">
+					<li><a class="dropdown-item" href="#">2000s ~ </a></li>
+					<li><a class="dropdown-item" href="#">1990s ~</a></li>
+					<li><a class="dropdown-item" href="#">1980s ~</a></li>
+					<li><a class="dropdown-item" href="#">1970s ~</a></li>
+				  </ul>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Accessories</a>
+					<ul class="dropdown-menu">
+					  <li><a class="dropdown-item" href="#">Footwear</a></li>
+					  <li><a class="dropdown-item" href="#">Headwear</a></li>
+					  <li><a class="dropdown-item" href="#">Homeware</a></li>
+					  <li><a class="dropdown-item" href="#">Jewellery</a></li>
+					</ul>
+				  </li>
+				  <li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Vinyles</a>
+					<ul class="dropdown-menu">
+						<li><a class="dropdown-item" href="#">2000s ~ </a></li>
+						<li><a class="dropdown-item" href="#">1990s ~</a></li>
+						<li><a class="dropdown-item" href="#">1980s ~</a></li>
+						<li><a class="dropdown-item" href="#">1970s ~</a></li>
+					</ul>
+				  </li>
+				<li class="nav-item">
+				  <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+				</li>
+			  </ul>
+			
+        </nav>
+    </header>
+<div class="container" id="opt1">
+	<div class="box1">
+		<aside id="login">
+			<form>
+				<div class="mb-3">
+					<label for="exampleFormControlInput1" class="form-label">ID</label>
+					<input type="id" class="form-control" id="exampleFormControlInput1" placeholder="id">
+				</div>
+				<div class="mb-3">
+					<label for="exampleFormControlInput1" class="form-label">password</label>
+					<input type="password" class="form-control" id="exampleFormControlInput1" placeholder="* * * * *">
+				</div>
+				<button type="submit" class="btn btn-secondary">login</button>
+				<button type="submit" class="btn btn-secondary">Sign up</button>
+			</form>			
+		</aside>
+	</div>
+		
+	<div class="box2">
+		<section id="post">
+			<article>
+                <div class="card" class="opt1">
+                    <header>
+                      
+                    </header>
+					<div>
+						<figure>
+							<img src="nirvana_tshirt.jpg" width="300px">
+						  </figure>
+					</div>
+					<div>
+						<h3>NIRVANA T-SHIRT</h3><br>
+						<p>$29.00</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+						
+						<div class="d-grid gap-2">
+							<div class="mb-4">
+								<p>size: </p>
+								<button type="button" class="btn btn-outline-secondary">xs</button>
+								<button type="button" class="btn btn-outline-secondary">s</button>
+								<button type="button" class="btn btn-outline-secondary">m</button>
+								<button type="button" class="btn btn-outline-secondary">l</button>
+								<button type="button" class="btn btn-outline-secondary">xl</button>
+								<button type="button" class="btn btn-outline-secondary">xxl</button>
+							</div>
+							<button class="btn btn-outline-dark" type="button">Add to wish list</button>
+							<button class="btn btn-secondary" type="button">Add to cart</button>
+						</div>
+					</div>
+                    
+                  </div> 
+			</article>
+			<article>
+                <div class="card">
+                    <header>
+                      
+                    </header>
+					<div>
+						<figure>
+							<img src="metalica_tshirt.jpg" width="300px">
+						  </figure>
+					</div>
+					<div>
+						<h3>METALICA T-SHIRT</h3><br>
+						<p>$33.95</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+						<div class="d-grid gap-2">
+							<div class="mb-4">
+								<p>size: </p>
+								<button type="button" class="btn btn-outline-secondary">xs</button>
+								<button type="button" class="btn btn-outline-secondary">s</button>
+								<button type="button" class="btn btn-outline-secondary">m</button>
+								<button type="button" class="btn btn-outline-secondary">l</button>
+								<button type="button" class="btn btn-outline-secondary">xl</button>
+								<button type="button" class="btn btn-outline-secondary">xxl</button>
+							</div>
+							<button class="btn btn-outline-dark" type="button">Add to wish list</button>
+							<button class="btn btn-secondary" type="button">Add to cart</button>
+						</div>
+					</div>
+                </div> 
+            </article>
+			<article>
+                <div class="card">
+                    <header>
+                      
+                    </header>
+                    <div>
+						<figure>
+							<img src="acdc_tshirt.jpg" width="300px">
+						  </figure>
+					</div>
+					<div>
+						<h3>ACDC T-SHIRT</h3><br>
+						<p>$26.95</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+						<div class="d-grid gap-2">
+							<div class="mb-4">
+								<p>size: </p>
+								<button type="button" class="btn btn-outline-secondary">xs</button>
+								<button type="button" class="btn btn-outline-secondary">s</button>
+								<button type="button" class="btn btn-outline-secondary">m</button>
+								<button type="button" class="btn btn-outline-secondary">l</button>
+								<button type="button" class="btn btn-outline-secondary">xl</button>
+								<button type="button" class="btn btn-outline-secondary">xxl</button>
+							</div>
+							<button class="btn btn-outline-dark" type="button">Add to wish list</button>
+							<button class="btn btn-secondary" type="button">Add to cart</button>
+						</div>
+					</div>
+                </div> 
+			</article>
+		</section>
+	</div>
+		
+	<div class="box3">
+		<aside id="ad">
+			<div class="d-grid gap-2">
+				<h4><span class="badge bg-secondary">Recommendations</span></h4>
+			<article>
+				<p><img src="bowie_lp.jpg" width="170" style="border-radius: 10px;"></p>
+			</article>
+			<article>
+				<p><img src="blur_lp.jpg" width="170" style="border-radius: 10px;"></p>
+			</article>
+			<article>
+				<p><img src="oasis_lp.jpg" width="170" style="border-radius: 10px;"></p>
+			</article>
+			</div>
+			
+		</aside>
+	</div>
+</div>
+	<footer class="box3">
+		<nav id="foot">
+			<ul class="nav justify-content-center">
+				<li class="nav-item"><a class="nav-link text-dark" href="#">Contact US</a></li>
+				<li class="nav-item"><a class="nav-link text-dark" href="#">Company Info</a></li>
+				<li class="nav-item"><a class="nav-link text-dark" href="#">Customer Service</a></li>
+				<li class="nav-item"><a class="nav-link text-dark" href="#">Other Stuff</a></li>
+			</ul>
+		</nav>	
+	</footer>
+	
+</body>
+</html>

@@ -4,275 +4,232 @@
 	<meta charset="utf-8">
 	<meta name="viewport">
 	<title>HTML + CSS 실습 5</title> 
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+	
 	<style>
-	/*color boxes*/
-		.box1 {
-			margin: 1rem;
-			border-radius: 10px; 
+		/*flex*/
+		.flex_col {
+			display: flex;
+			
 		}
-		.box2 {
-			background-color: gainsboro;
-			margin:1rem;
-			border-radius: 10px; 
-		}
-		.box3 {
-			background-color: lightgray;
-			margin:1rem;
-			border-radius: 10px; 
-			justify-content: center; /* 수평 가운데 정렬 */
-            align-items: center; /* 수직 가운데 정렬 */
-		}
-	/*flex box*/
-		.container {
+		.flex_row {
 			display: flex;
 			flex-direction: row;
+		}
+		.flex_wrap {
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		/*정렬*/
+		.center {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		
+		/*div*/
+		.box_white {
+			background-color: beige;
 			margin: 10px;
 			padding: 10px;
 		}
-		#opt1 { 
-			display: flex;
-			flex-direction: row;
+		/*header*/
+		.box_header_white {
+			background-color: beige;
+			margin: 10px;
+			padding: 10px;
 		}
-		#opt2 { flex-direction: column; }
-	/*header*/
-		#top_header {
-			padding: 3rem;
-		}
-	/*dropdown*/
-		.dropdown:hover .dropdown-menu {
-			display: block;
-			margin-top: 0;
-		}
-		.dropdown:hover .dropdown-toggle {
-			display: block;
-			margin-top: 0;
-			background-color: whitesmoke;
-			color:black;
 
+		/*nav*/
+		/*aside*/
+		.box_aside_white {
+			width: 600px;
+			
+			background-color: beige;
+			margin: 10px;
+			padding: 10px;
 		}
-		.nav-pills .nav-link.active {
-			background-color: #6c757d; /* Bootstrap의 secondary 색상에 해당하는 색상으로 변경 */
-			color: #fff; /* 배경색이 변경되었으므로 텍스트 색상을 변경하여 가독성을 유지 */
-   		}
-		.dropdown-toggle {
-        color:black; /* 바꾸고 싶은 텍스트 색상으로 변경 */
-    	}
-		
-	/*aside*/
-		#login {
-			padding: 1rem;
-			width: 15rem;
+		/*section*/
+		.box_section_white {
+			
+			
+			background-color: beige;
+			margin: 10px;
+			padding: 10px;
 		}
-		#ad {
-			padding: 1rem;
-			width: 15rem;
-			text-align: center;
-		}
-	/*selection*/
+		/*section - card*/
 		.card {
-			display: flex;
-			flex-direction: row;
-			width: 50rem;
-			margin: 1rem;
-			padding: 1rem;
-			justify-content: center; /* 수평 가운데 정렬 */
-            align-items: center; /* 수직 가운데 정렬 */
-		}
-		.card > div {
-			padding:2rem;
+			background-color: gainsboro;
+			margin: 5px;
+			
 		}
 	</style>
 
 </head>
 <body>
-	<header id="top_header" class="box3">
-        <div id="title">
-            <h1>ROCK BAND TSHIRTS</h1>
-            <p>We also sell other items</p>
-		</div>
-        <nav>
-			<ul class="nav nav-pills">
-				<li class="nav-item" >
-				  <a class="nav-link active" aria-current="page" href="#">HOME</a>
+	<nav align="right">
+		<button>찜</button>
+		<button>CART</button>
+		<button>MYPAGE</button>
+	</nav>
+	<header>
+		<div class="box_white">
+			<h1 align="center">T-SHIRTS</h1>
+		<nav>
+			<ul class="nav nav-underline justify-content-center"">
+				<li class="nav-item">
+				  <a class="nav-link active" aria-current="page" href="#">Active</a>
 				</li>
-				<li class="nav-item dropdown">
-				  <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">T-shirts</a>
-				  <ul class="dropdown-menu">
-					<li><a class="dropdown-item" href="#">2000s ~ </a></li>
-					<li><a class="dropdown-item" href="#">1990s ~</a></li>
-					<li><a class="dropdown-item" href="#">1980s ~</a></li>
-					<li><a class="dropdown-item" href="#">1970s ~</a></li>
-				  </ul>
+				<li class="nav-item">
+				  <a class="nav-link" href="diy.html">Link</a>
 				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Accessories</a>
-					<ul class="dropdown-menu">
-					  <li><a class="dropdown-item" href="#">Footwear</a></li>
-					  <li><a class="dropdown-item" href="#">Headwear</a></li>
-					  <li><a class="dropdown-item" href="#">Homeware</a></li>
-					  <li><a class="dropdown-item" href="#">Jewellery</a></li>
-					</ul>
-				  </li>
-				  <li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Vinyles</a>
-					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="#">2000s ~ </a></li>
-						<li><a class="dropdown-item" href="#">1990s ~</a></li>
-						<li><a class="dropdown-item" href="#">1980s ~</a></li>
-						<li><a class="dropdown-item" href="#">1970s ~</a></li>
-					</ul>
-				  </li>
+				<li class="nav-item">
+				  <a class="nav-link" href="#">Link</a>
+				</li>
 				<li class="nav-item">
 				  <a class="nav-link disabled" aria-disabled="true">Disabled</a>
 				</li>
 			  </ul>
-			
-        </nav>
-    </header>
-<div class="container" id="opt1">
-	<div class="box1">
-		<aside id="login">
-			<form>
-				<div class="mb-3">
-					<label for="exampleFormControlInput1" class="form-label">ID</label>
-					<input type="id" class="form-control" id="exampleFormControlInput1" placeholder="id">
-				</div>
-				<div class="mb-3">
-					<label for="exampleFormControlInput1" class="form-label">password</label>
-					<input type="password" class="form-control" id="exampleFormControlInput1" placeholder="* * * * *">
-				</div>
-				<button type="submit" class="btn btn-secondary">login</button>
-				<button type="submit" class="btn btn-secondary">Sign up</button>
-			</form>			
-		</aside>
-	</div>
+		</nav>
+		</div>
 		
-	<div class="box2">
-		<section id="post">
-			<article>
-                <div class="card" class="opt1">
-                    <header>
-                      
-                    </header>
-					<div>
-						<figure>
-							<img src="nirvana_tshirt.jpg" width="300px">
-						  </figure>
-					</div>
-					<div>
-						<h3>NIRVANA T-SHIRT</h3><br>
-						<p>$29.00</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-						
-						<div class="d-grid gap-2">
-							<div class="mb-4">
-								<p>size: </p>
-								<button type="button" class="btn btn-outline-secondary">xs</button>
-								<button type="button" class="btn btn-outline-secondary">s</button>
-								<button type="button" class="btn btn-outline-secondary">m</button>
-								<button type="button" class="btn btn-outline-secondary">l</button>
-								<button type="button" class="btn btn-outline-secondary">xl</button>
-								<button type="button" class="btn btn-outline-secondary">xxl</button>
-							</div>
-							<button class="btn btn-outline-dark" type="button">Add to wish list</button>
-							<button class="btn btn-secondary" type="button">Add to cart</button>
-						</div>
-					</div>
-                    
-                  </div> 
-			</article>
-			<article>
-                <div class="card">
-                    <header>
-                      
-                    </header>
-					<div>
-						<figure>
-							<img src="metalica_tshirt.jpg" width="300px">
-						  </figure>
-					</div>
-					<div>
-						<h3>METALICA T-SHIRT</h3><br>
-						<p>$33.95</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-						<div class="d-grid gap-2">
-							<div class="mb-4">
-								<p>size: </p>
-								<button type="button" class="btn btn-outline-secondary">xs</button>
-								<button type="button" class="btn btn-outline-secondary">s</button>
-								<button type="button" class="btn btn-outline-secondary">m</button>
-								<button type="button" class="btn btn-outline-secondary">l</button>
-								<button type="button" class="btn btn-outline-secondary">xl</button>
-								<button type="button" class="btn btn-outline-secondary">xxl</button>
-							</div>
-							<button class="btn btn-outline-dark" type="button">Add to wish list</button>
-							<button class="btn btn-secondary" type="button">Add to cart</button>
-						</div>
-					</div>
-                </div> 
-            </article>
-			<article>
-                <div class="card">
-                    <header>
-                      
-                    </header>
-                    <div>
-						<figure>
-							<img src="acdc_tshirt.jpg" width="300px">
-						  </figure>
-					</div>
-					<div>
-						<h3>ACDC T-SHIRT</h3><br>
-						<p>$26.95</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-						<div class="d-grid gap-2">
-							<div class="mb-4">
-								<p>size: </p>
-								<button type="button" class="btn btn-outline-secondary">xs</button>
-								<button type="button" class="btn btn-outline-secondary">s</button>
-								<button type="button" class="btn btn-outline-secondary">m</button>
-								<button type="button" class="btn btn-outline-secondary">l</button>
-								<button type="button" class="btn btn-outline-secondary">xl</button>
-								<button type="button" class="btn btn-outline-secondary">xxl</button>
-							</div>
-							<button class="btn btn-outline-dark" type="button">Add to wish list</button>
-							<button class="btn btn-secondary" type="button">Add to cart</button>
-						</div>
-					</div>
-                </div> 
-			</article>
-		</section>
-	</div>
-		
-	<div class="box3">
-		<aside id="ad">
-			<div class="d-grid gap-2">
-				<h4><span class="badge bg-secondary">Recommendations</span></h4>
-			<article>
-				<p><img src="bowie_lp.jpg" width="170" style="border-radius: 10px;"></p>
-			</article>
-			<article>
-				<p><img src="blur_lp.jpg" width="170" style="border-radius: 10px;"></p>
-			</article>
-			<article>
-				<p><img src="oasis_lp.jpg" width="170" style="border-radius: 10px;"></p>
-			</article>
+	</header>
+	<div class="flex_col">
+		<aside class="box_aside_white">
+			<div>
+				필터
 			</div>
-			
 		</aside>
+		<section class="box_section_white">
+			<nav class="navbar bg-body-tertiary m-1">
+				<div class="container-fluid">
+				  <a class="navbar-brand">Navbar</a>
+				  <form class="d-flex" role="search">
+					<select class="form-select" aria-label="Default select example">
+						<option value="1" selected>등록순</option>
+						<option value="2">인기순</option>
+						<option value="3">낮은가격순</option>
+						<option value="4">높은가격순</option>
+						<option value="5">상품평 많은순</option>
+					  </select>
+				  </form>
+				</div>
+			  </nav>
+			<div class="flex_col flex-wrap">
+				<div class="card text-bg-light mb-3" style="width: 18rem;">
+					<div class="card-header"></div>
+					<img src="nirvana_tshirt.jpg" class="card-img-top" style="margin: 1rem; width: 16rem;" alt=>
+					<div class="card-body">
+						<h5 class="card-title">NIRVANA T-Shirt</h5>
+						<p class="card-text">37,000₩</p>
+						<button>찜</button>
+					</div>
+				</div>
+				<div class="card text-bg-light mb-3" style="width: 18rem;">
+					<div class="card-header"></div>
+					<img src="nirvana_tshirt.jpg" class="card-img-top" style="margin: 1rem; width: 16rem;" alt=>
+					<div class="card-body">
+						<h5 class="card-title">NIRVANA T-Shirt</h5>
+						<p class="card-text">37,000₩</p>
+						<button>찜</button>
+					</div>
+				</div>
+				<div class="card text-bg-light mb-3" style="width: 18rem;">
+					<div class="card-header"></div>
+					<img src="nirvana_tshirt.jpg" class="card-img-top" style="margin: 1rem; width: 16rem;" alt=>
+					<div class="card-body">
+						<h5 class="card-title">NIRVANA T-Shirt</h5>
+						<p class="card-text">37,000₩</p>
+						<button>찜</button>
+					</div>
+				</div><div class="card text-bg-light mb-3" style="width: 18rem;">
+					<div class="card-header"></div>
+					<img src="nirvana_tshirt.jpg" class="card-img-top" style="margin: 1rem; width: 16rem;" alt=>
+					<div class="card-body">
+						<h5 class="card-title">NIRVANA T-Shirt</h5>
+						<p class="card-text">37,000₩</p>
+						<button>찜</button>
+					</div>
+				</div>
+				<div class="card text-bg-light mb-3" style="width: 18rem;">
+					<div class="card-header"></div>
+					<img src="nirvana_tshirt.jpg" class="card-img-top" style="margin: 1rem; width: 16rem;" alt=>
+					<div class="card-body">
+						<h5 class="card-title">NIRVANA T-Shirt</h5>
+						<p class="card-text">37,000₩</p>
+						<button>찜</button>
+					</div>
+				</div>
+				<div class="card text-bg-light mb-3" style="width: 18rem;">
+					<div class="card-header"></div>
+					<img src="nirvana_tshirt.jpg" class="card-img-top" style="margin: 1rem; width: 16rem;" alt=>
+					<div class="card-body">
+						<h5 class="card-title">NIRVANA T-Shirt</h5>
+						<p class="card-text">37,000₩</p>
+						<button>찜</button>
+					</div>
+				</div>
+				<div class="card text-bg-light mb-3" style="width: 18rem;">
+					<div class="card-header"></div>
+					<img src="nirvana_tshirt.jpg" class="card-img-top" style="margin: 1rem; width: 16rem;" alt=>
+					<div class="card-body">
+						<h5 class="card-title">NIRVANA T-Shirt</h5>
+						<p class="card-text">37,000₩</p>
+						<button>찜</button>
+					</div>
+				</div><div class="card text-bg-light mb-3" style="width: 18rem;">
+					<div class="card-header"></div>
+					<img src="nirvana_tshirt.jpg" class="card-img-top" style="margin: 1rem; width: 16rem;" alt=>
+					<div class="card-body">
+						<h5 class="card-title">NIRVANA T-Shirt</h5>
+						<p class="card-text">37,000₩</p>
+						<button>찜</button>
+					</div>
+				</div>
+				<div class="card text-bg-light mb-3" style="width: 18rem;">
+					<div class="card-header"></div>
+					<img src="nirvana_tshirt.jpg" class="card-img-top" style="margin: 1rem; width: 16rem;" alt=>
+					<div class="card-body">
+						<h5 class="card-title">NIRVANA T-Shirt</h5>
+						<p class="card-text">37,000₩</p>
+						<button>찜</button>
+					</div>
+				</div>
+				<div class="card text-bg-light mb-3" style="width: 18rem;">
+					<div class="card-header"></div>
+					<img src="nirvana_tshirt.jpg" class="card-img-top" style="margin: 1rem; width: 16rem;" alt=>
+					<div class="card-body">
+						<h5 class="card-title">NIRVANA T-Shirt</h5>
+						<p class="card-text">37,000₩</p>
+						<button>찜</button>
+					</div>
+				</div>
+				<div class="card text-bg-light mb-3" style="width: 18rem;">
+					<div class="card-header"></div>
+					<img src="nirvana_tshirt.jpg" class="card-img-top" style="margin: 1rem; width: 16rem;" alt=>
+					<div class="card-body">
+						<h5 class="card-title">NIRVANA T-Shirt</h5>
+						<p class="card-text">37,000₩</p>
+						<button>찜</button>
+					</div>
+				</div><div class="card text-bg-light mb-3" style="width: 18rem;">
+					<div class="card-header"></div>
+					<img src="nirvana_tshirt.jpg" class="card-img-top" style="margin: 1rem; width: 16rem;" alt=>
+					<div class="card-body">
+						<h5 class="card-title">NIRVANA T-Shirt</h5>
+						<p class="card-text">37,000₩</p>
+						<button>찜</button>
+					</div>
+				</div>
+				
+			</div>
+		</section>
+
 	</div>
-</div>
-	<footer class="box3">
-		<nav id="foot">
-			<ul class="nav justify-content-center">
-				<li class="nav-item"><a class="nav-link text-dark" href="#">Contact US</a></li>
-				<li class="nav-item"><a class="nav-link text-dark" href="#">Company Info</a></li>
-				<li class="nav-item"><a class="nav-link text-dark" href="#">Customer Service</a></li>
-				<li class="nav-item"><a class="nav-link text-dark" href="#">Other Stuff</a></li>
-			</ul>
-		</nav>	
+	<footer>
+
 	</footer>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
