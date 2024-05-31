@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<!--<meta charset="utf-8">-->
+	<!--<meta name="viewport">-->
+	<title>HTML + CSS 실습 5</title> 
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+	
+	<style>
+		/*flex*/
+		.flex_col {
+			display: flex;
+		}
+		.flex_row {
+			display: flex;
+			flex-direction: row;
+		}
+		.flex_wrap {
+            display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+        .flex_center {
+            display: flex;
+            justify-content: center;
+        }
+		/*정렬*/
+		.center {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+
+		
+		/*div*/
+		.box_white {
+			background-color:#e9ecef;
+			margin: 10px;
+			padding: 10px;
+			border-radius: 5px;
+		}
+		/*header*/
+		.box_header_white {
+			background-color:#e9ecef;
+			margin: 10px;
+			padding: 10px;
+			border-radius: 5px;
+		}
+
+		/*nav*/
+		/*aside*/
+		.box_aside_white {
+			width: 600px;
+			background-color: #e9ecef;
+			margin: 10px;
+			padding: 10px;
+			border-radius: 5px;
+			
+		}
+		/*section*/
+		.box_section_white {
+			
+			
+			background-color: #e9ecef;
+			margin: 10px;
+			padding: 10px;
+			border-radius: 5px;
+		}
+		/*section - card*/
+		.card_header {
+			background-color: #e9ecef;
+			margin: 10px;
+			padding: 20px;
+		}
+		.card_section {
+			background-color: #e9ecef;
+			margin: 5px;
+			
+		}
+        .card_mypage {
+            background-color: #e9ecef;
+			margin: 5px;
+            padding: 20px;
+            width: 1000px;
+        }
+
+        /*login*/
+         .box_login {
+            padding: 20px;
+            width: 400px;
+        }
+        /*mypage*/
+        .box_mypage {
+            padding: 20px;
+            width: 600px;
+        }
+        .crop_profile {
+            max-width: 200px;
+            max-height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            
+        }
+       
+	</style>
+
+</head>
+<body>
+	<nav align="right">
+		<button>찜</button>
+		<button>CART</button>
+		<button onclick="location.href='login.html'">MYPAGE</button>
+	</nav>
+	<header>
+		<div class="card card_header">
+			<h1 align="center">T-SHIRTS</h1>
+		<nav>
+			<ul class="nav nav-underline justify-content-center"">
+				<li class="nav-item">
+				  <a class="nav-link active" aria-current="page" href="#">Active</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="diy.html">Link</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="#">Link</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+				</li>
+			  </ul>
+		</nav>
+		</div>
+		
+	</header>
+	<div class="flex_center">
+        <div class="card card_mypage flex_col">
+            <div style="width:300px; background-color: gainsboro;">
+                <div class="crop_profile border">
+                    <img src="image/스마일 링아대.jpg" style="width: 200px;" >
+                </div>
+                <button type="button" class="btn btn-light">프로필 사진 변경</button>
+            </div>
+            <div class="flex_col" style="background-color: gainsboro;">
+                <button class="btn btn-primary" type="button">Button</button>
+                <button class="btn btn-primary" type="button">Button</button>
+                <button class="btn btn-primary" type="button">Button</button>
+            </div>
+        </div>
+	</div>
+
+	<div class="container">
+		<footer class="py-3 my-4">
+		  <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+			<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+			<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+			<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+			<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+			<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+		  </ul>
+		  <p class="text-center text-muted">&copy; 2022 Company, Inc</p>
+		</footer>
+	  </div>
+</body>
+</html>
