@@ -10,20 +10,16 @@
 		/*flex*/
 		.flex_col {
 			display: flex;
+			
 		}
 		.flex_row {
 			display: flex;
 			flex-direction: row;
 		}
 		.flex_wrap {
-            display: flex;
 			flex-wrap: wrap;
 			justify-content: center;
 		}
-        .flex_center {
-            display: flex;
-            justify-content: center;
-        }
 		/*정렬*/
 		.center {
 			position: absolute;
@@ -32,20 +28,19 @@
 			transform: translate(-50%, -50%);
 		}
 
-
 		
 		/*div*/
 		.box_white {
 			background-color:#e9ecef;
-			margin: 10px;
+			/*margin: 10px;*/
 			padding: 10px;
 			border-radius: 5px;
 		}
 		/*header*/
 		.box_header_white {
 			background-color:#e9ecef;
-			margin: 10px;
-			padding: 10px;
+			/*margin: 10px;*/
+			padding: 20px;
 			border-radius: 5px;
 		}
 
@@ -57,6 +52,7 @@
 			margin: 10px;
 			padding: 10px;
 			border-radius: 5px;
+		
 			
 		}
 		/*section*/
@@ -67,6 +63,7 @@
 			margin: 10px;
 			padding: 10px;
 			border-radius: 5px;
+			
 		}
 		/*section - card*/
 		.card_header {
@@ -79,78 +76,72 @@
 			margin: 5px;
 			
 		}
-        .card_mypage {
-            background-color: #e9ecef;
-			margin: 5px;
-            padding: 20px;
-            width: 1000px;
-        }
 
-        /*login*/
-         .box_login {
-            padding: 20px;
-            width: 400px;
-        }
-        /*mypage*/
-        .box_mypage {
-            padding: 20px;
-            width: 600px;
-        }
-        .crop_profile {
-            max-width: 200px;
-            max-height: 200px;
-            border-radius: 50%;
-            overflow: hidden;
-            
-        }
-       
+		/*mypage*/
+			
 	</style>
 
 </head>
 <body>
+	<!--최상단-->
 	<nav align="right">
-		<button>찜</button>
-		<button>CART</button>
-		<button onclick="location.href='login.html'">MYPAGE</button>
-	</nav>
-	<header>
-		<div class="card card_header">
-			<h1 align="center">T-SHIRTS</h1>
-		<nav>
-			<ul class="nav nav-underline justify-content-center"">
-				<li class="nav-item">
-				  <a class="nav-link active" aria-current="page" href="#">Active</a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link" href="diy.html">Link</a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link" href="#">Link</a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-				</li>
-			  </ul>
-		</nav>
+		<div class="container">
+			<img src="svg/heart.svg" style="width: 25px;" class="my-3 mx-2">
+			<img src="svg/cart3.svg" style="width: 25px;" class="my-3 mx-2">
+			<img src="svg/person-circle.svg" style="width: 25px;" class="my-3 mx-2" onclick="location.href='login.html'"> 
 		</div>
-		
-	</header>
-	<div class="flex_center">
-        <div class="card card_mypage flex_col">
-            <div style="width:300px; background-color: gainsboro;">
-                <div class="crop_profile border">
-                    <img src="image/스마일 링아대.jpg" style="width: 200px;" >
-                </div>
-                <button type="button" class="btn btn-light">프로필 사진 변경</button>
-            </div>
-            <div class="flex_col" style="background-color: gainsboro;">
-                <button class="btn btn-primary" type="button">Button</button>
-                <button class="btn btn-primary" type="button">Button</button>
-                <button class="btn btn-primary" type="button">Button</button>
-            </div>
-        </div>
-	</div>
+	</nav>
 
+	
+	<!--헤더-->
+	<header>
+		<div class="container">
+			<div class="box_header_white border border-2 rounded-2">
+				<h1 align="center">T-SHIRTS</h1>
+			<nav>
+				<ul class="nav nav-underline justify-content-center"">
+					<li class="nav-item">
+					<a class="nav-link active" aria-current="page" href="#">STORE</a>
+					</li>
+					<li class="nav-item">
+					<a class="nav-link link-dark" href="diy.html">DIY</a>
+					</li>
+					<li class="nav-item">
+					<a class="nav-link link-dark" href="#">Link</a>
+					</li>
+					<li class="nav-item">
+					<a class="nav-link disabled" aria-disabled="true">Disabled</a>
+					</li>
+				</ul>
+			</nav>
+			</div>
+		</div>
+	</header>
+
+
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col card align-items-center mx-3 my-5 p-5 ">
+					<img src="image/스마일 링아대.jpg" class="m-3" style="width: 150px; border-radius: 70%;">
+					<button type="button" class="btn btn-light">프로필 사진 변경</button>
+				</div>
+				<div class="col-8 card mx-3 my-5 p-3">
+					<div class="">
+						<div class="d-grid gap-4 col-6 mx-auto">
+							<button class="btn btn-outline-secondary" type="button">Button</button>
+							<button class="btn btn-outline-secondary" type="button">Button</button>
+							<button class="btn btn-outline-secondary" type="button">Button</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+	<!--footer-->
 	<div class="container">
 		<footer class="py-3 my-4">
 		  <ul class="nav justify-content-center border-bottom pb-3 mb-3">
@@ -162,6 +153,7 @@
 		  </ul>
 		  <p class="text-center text-muted">&copy; 2022 Company, Inc</p>
 		</footer>
-	  </div>
+	</div>
+	  
 </body>
 </html>
