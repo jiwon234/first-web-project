@@ -98,7 +98,7 @@
 	<nav align="right">
 		<div class="container">
 			<img src="svg/heart.svg" style="width: 25px;" class="my-3 mx-2">
-			<img src="svg/cart3.svg" style="width: 25px;" class="my-3 mx-2">
+			<img src="svg/cart3.svg" style="width: 25px;" class="my-3 mx-2" onclick="location.href='cart.html'">
 			<img src="svg/person-circle.svg" style="width: 25px;" class="my-3 mx-2" onclick="location.href='login.html'"> 
 		</div>
 	</nav>
@@ -109,25 +109,25 @@
 			<div class="box_header_white border border-2 rounded-2">
 				<h1 align="center">T-SHIRTS</h1>
 			<nav>
-				<ul class="nav nav-underline justify-content-center">
+				<ul class="nav nav-underline justify-content-center"">
 					<li class="nav-item">
-					  <a class="nav-link link-dark" aria-current="page" href="store.html">STORE</a>
+					  <a class="nav-link link-dark" href="store.html">STORE</a>
 					</li>
 					<li class="nav-item">
-					  <a class="nav-link link-dark" href="diy.html">DIY</a>
+					  <a class="nav-link link-dark" aria-current="page" href="diy.html">DIY</a>
 					</li>
 					<li class="nav-item">
-					  <a class="nav-link link-dark" href="#">Link</a>
+					  <a class="nav-link link-dark disabled" href="#">CS</a>
 					</li>
 					<li class="nav-item">
-					  <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+					  <a class="nav-link link-dark" aria-disabled="true" href="aboutus.html">About us</a>
 					</li>
 				  </ul>
 			</nav>
 			</div>
 		</div>
 	</header>
-	
+
     <div class="container d-flex justify-content-center">
         <div class="card box_login m-5 p-3">
             <main class="form-signin w-100 m-auto">
@@ -149,8 +149,16 @@
                       <input type="checkbox" value="remember-me" class="mt-3"> 로그인상태유지
                     </label>
                   </div>
-                  <button class="w-100 btn btn-lg btn-dark" type="submit">로그인</button>
-                  <p class="mt-5 mb-3 text-muted" align="center">회원가입 / 아이디 비밀번호 찾기</p>
+                  <button class="w-100 btn btn-lg btn-dark" onclick="window.location.href='mypage.html'">로그인</button>
+				  <div class="row">
+					<div class="col">
+						<div class="d-flex justify-content-center mt-4 mb-3 text-muted">
+							<div class="mx-2" onclick="location.href='signin.html'">회원가입</div>
+							<div class="mx-2">/</div>
+							<div class="mx-2" onclick="location.href='signin.html'">아이디 비밀번호 찾기</div>
+						</div>
+					</div>
+				  </div>
                 </form>
               </main>
         </div>

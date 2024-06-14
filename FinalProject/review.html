@@ -83,7 +83,7 @@
 	<nav align="right">
 		<div class="container">
 			<img src="svg/heart.svg" style="width: 25px;" class="my-3 mx-2">
-			<img src="svg/cart3.svg" style="width: 25px;" class="my-3 mx-2">
+			<img src="svg/cart3.svg" style="width: 25px;" class="my-3 mx-2" onclick="location.href='cart.html'">
 			<img src="svg/person-circle.svg" style="width: 25px;" class="my-3 mx-2" onclick="location.href='login.html'"> 
 		</div>
 	</nav>
@@ -96,16 +96,16 @@
 			<nav>
 				<ul class="nav nav-underline justify-content-center"">
 					<li class="nav-item">
-					  <a class="nav-link active" aria-current="page" href="#">STORE</a>
+					  <a class="nav-link link-dark active" href="store.html">STORE</a>
 					</li>
 					<li class="nav-item">
-					  <a class="nav-link link-dark" href="diy.html">DIY</a>
+					  <a class="nav-link link-dark " aria-current="page" href="diy.html">DIY</a>
 					</li>
 					<li class="nav-item">
-					  <a class="nav-link link-dark" href="#">Link</a>
+					  <a class="nav-link link-dark disabled" href="#">CS</a>
 					</li>
 					<li class="nav-item">
-					  <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+					  <a class="nav-link link-dark" aria-disabled="true" href="aboutus.html">About us</a>
 					</li>
 				  </ul>
 			</nav>
@@ -115,8 +115,8 @@
 
 	<!--메인-->
     <section>
-        <div class="container">
-            <div class="box_section_white m-5 p-3">
+        <div class="container d-flex justify-content-center">
+            <div class="box_section_white m-5 p-3" style="width:1000px;">
                 <div class="row">
                     <div class="col">
                         <div class="card h-100 d-flex align-items-center">
@@ -128,7 +128,7 @@
                             
                             <div class="p-5">
                                 <h2 class="fw-bolder">NIRVANA T-SHIRT</h2>
-                                <h3>가격: 37, 000</h3>
+                                <h4>가격: 37, 000</h4>
                                 <hr>
                                 배송 방법: 택배<br>
                                 배송비 3,000원 | 도서 산간 배송비 추가 
@@ -147,10 +147,12 @@
                                       <input type="text" class="form-control" id="number">
                                     </div>
                                   </div>
-                                <div class="d-grid gap-2 col-auto mx-auto m-3">
-                                    <button class="btn btn-secondary" type="button">주문하기</button>
-                                    <button class="btn btn-outline-secondary" type="button">장바구니</button>
-                                </div>
+								<div class="mt-5">
+									<div class="d-grid gap-2 col-auto mx-auto mx-3">
+										<button class="btn btn-secondary" type="button" onclick="location.href='order.html'">주문하기</button>
+										<button class="btn btn-outline-secondary" type="button">장바구니</button>
+									</div>
+								</div>
                             </div>
                         </div> 
                     </div>
@@ -166,8 +168,43 @@
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">반품/교환정보</a>
                   </nav>
                 <hr>
-                <h3>리뷰</h3>
-                
+				<div class="my-4">
+					<h3>리뷰</h3>
+				</div>
+                <table class="table table-hover">
+					<thead>
+					  <tr>
+						<th scope="col">#</th>
+						<th scope="col">평점</th>
+						<th scope="col">제목</th>
+						<th scope="col">닉네임</th>
+						<th scope="col">날짜</th>
+					  </tr>
+					</thead>
+					<tbody>
+					  <tr onclick="location.href='#'">
+						<th scope="row">1</th>
+						<td>&#10029;&#10029;&#10029;&#10029;&#10029;</td>
+						<td>사이즈가 잘 맞아요.</td>
+						<td>나무늘보</td>
+						<td>24/05/29</td>
+					  </tr>
+					  <tr onclick="location.href='#'">
+						<th scope="row">2</th>
+						<td>&#10029;&#10029;&#10029;&#10025;&#10025;</td>
+						<td>질이 그저 그러네요</td>
+						<td>참치</td>
+						<td>23/11/07</td>
+					  </tr>
+					  <tr onclick="location.href='#'">
+						<th scope="row">3</th>
+						<td>&#10029;&#10029;&#10029;&#10029;&#10025;</td>
+						<td>맘에 들어요!</td>
+						<td>개미</td>
+						<td>23/11/05</td>
+					  </tr>
+					</tbody>
+				  </table>
             </div>
         </div>
         

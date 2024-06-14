@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<!--<meta charset="utf-8">-->
+	<!--<meta name="viewport">-->
+	<title>HTML + CSS 실습 5</title> 
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+	
+	<style>
+		/*flex*/
+		.flex_col {
+			display: flex;
+			
+		}
+		.flex_row {
+			display: flex;
+			flex-direction: row;
+		}
+		.flex_wrap {
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		/*정렬*/
+		.center {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		
+		/*div*/
+		.box_white {
+			background-color:#e9ecef;
+			/*margin: 10px;*/
+			padding: 10px;
+			border-radius: 5px;
+		}
+		/*header*/
+		.box_header_white {
+			background-color:#e9ecef;
+			/*margin: 10px;*/
+			padding: 20px;
+			border-radius: 5px;
+		}
+
+		/*nav*/
+		/*aside*/
+		.box_aside_white {
+			width: 600px;
+			background-color: #e9ecef;
+			margin: 10px;
+			padding: 10px;
+			border-radius: 5px;
+		
+			
+		}
+		/*section*/
+		.box_section_white {
+			background-color: #e9ecef;
+			margin: 10px;
+			padding: 10px;
+			border-radius: 5px;
+			
+		}
+		/*section - card*/
+		.card_header {
+			background-color: #e9ecef;
+			margin: 10px;
+			padding: 20px;
+		}
+		.card_section {
+			background-color: #e9ecef;
+			margin: 5px;
+			
+		}
+	
+	</style>
+	<style>
+		/*section - card*/
+		.card {
+			background-color: #e9ecef;
+			margin: 5px;
+			
+		}
+        /*login*/
+        .box_login {
+            padding: 20px;
+            width: 400px;
+        }
+	</style>
+
+</head>
+<body>
+	<!--최상단-->
+	<nav align="right">
+		<div class="container">
+			<img src="svg/heart.svg" style="width: 25px;" class="my-3 mx-2">
+			<img src="svg/cart3.svg" style="width: 25px;" class="my-3 mx-2" onclick="location.href='cart.html'">
+			<img src="svg/person-circle.svg" style="width: 25px;" class="my-3 mx-2" onclick="location.href='login.html'"> 
+		</div>
+	</nav>
+
+	<!--헤더-->
+	<header>
+		<div class="container">
+			<div class="box_header_white border border-2 rounded-2">
+				<h1 align="center">T-SHIRTS</h1>
+			<nav>
+				<ul class="nav nav-underline justify-content-center"">
+					<li class="nav-item">
+					  <a class="nav-link link-dark" href="store.html">STORE</a>
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link link-dark" aria-current="page" href="diy.html">DIY</a>
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link link-dark disabled" href="#">CS</a>
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link link-dark" aria-disabled="true" href="aboutus.html">About us</a>
+					</li>
+				  </ul>
+			</nav>
+			</div>
+		</div>
+	</header>
+	
+    <div class="container d-flex justify-content-center" style="width: 600px;">
+        <div class="row d-flex justify-content-center">
+                <div class="mt-5 mb-3 text-center">
+                    <h3>장바구니</h3>
+                </div>
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">
+                            상품 정보
+                        </th>
+                        <th scope="col">수량</th>
+                        <th scope="col">주문금액</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <img src="image/nirvana_tshirt.jpg" style="width: 100px;" class="card">
+                                    </div>
+                                    <div class="col">
+                                        너바나 티셔츠
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>1</td>
+                        <td>24,000</td>
+                      </tr>
+                      <tr>
+                        <td>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <img src="image/nirvana_tshirt.jpg" style="width: 100px;" class="card">
+                                    </div>
+                                    <div class="col">
+                                        너바나 티셔츠
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>1</td>
+                        <td>24,000</td>
+                      </tr>
+                      <tr>
+                        <td>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <img src="image/nirvana_tshirt.jpg" style="width: 100px;" class="card">
+                                    </div>
+                                    <div class="col">
+                                        너바나 티셔츠
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>1</td>
+                        <td>24,000</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  
+                  <hr>
+                  <div>총 주문 상품 1개</div>
+                  <hr>
+                  <div class="text-center">
+                    24,000원 + 3,000원 = 27,000원
+                  </div>
+                  <hr>
+                  <div class="d-grid gap-2 col-6 mx-auto">
+                    <button class="btn btn-dark mb-3" type="button">주문하기</button>
+                    <div class="text-center" onclick="location.href='store.html'">계속 쇼핑하기</div>
+                  </div>
+
+            </div>
+        
+
+        </div>
+    </div>
+
+	<div class="container">
+		<footer class="py-3 my-4">
+		  <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+			<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+			<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+			<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+			<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+			<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+		  </ul>
+		  <p class="text-center text-muted">&copy; 2022 Company, Inc</p>
+		</footer>
+	  </div>
+</body>
+</html>

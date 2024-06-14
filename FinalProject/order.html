@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<!--<meta charset="utf-8">-->
+	<!--<meta name="viewport">-->
+	<title>HTML + CSS 실습 5</title> 
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+	
+	<style>
+		/*flex*/
+		.flex_col {
+			display: flex;
+			
+		}
+		.flex_row {
+			display: flex;
+			flex-direction: row;
+		}
+		.flex_wrap {
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		/*정렬*/
+		.center {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		
+		/*div*/
+		.box_white {
+			background-color:#e9ecef;
+			/*margin: 10px;*/
+			padding: 10px;
+			border-radius: 5px;
+		}
+		/*header*/
+		.box_header_white {
+			background-color:#e9ecef;
+			/*margin: 10px;*/
+			padding: 20px;
+			border-radius: 5px;
+		}
+
+		/*nav*/
+		/*aside*/
+		.box_aside_white {
+			width: 600px;
+			background-color: #e9ecef;
+			margin: 10px;
+			padding: 10px;
+			border-radius: 5px;
+		
+			
+		}
+		/*section*/
+		.box_section_white {
+			background-color: #e9ecef;
+			margin: 10px;
+			padding: 10px;
+			border-radius: 5px;
+			
+		}
+		/*section - card*/
+		.card_header {
+			background-color: #e9ecef;
+			margin: 10px;
+			padding: 20px;
+		}
+		.card_section {
+			background-color: #e9ecef;
+			margin: 5px;
+			
+		}
+	
+	</style>
+	<style>
+		/*section - card*/
+		.card {
+			background-color: #e9ecef;
+			margin: 5px;
+			
+		}
+        /*login*/
+        .box_login {
+            padding: 20px;
+            width: 400px;
+        }
+	</style>
+
+</head>
+<body>
+	<!--최상단-->
+	<nav align="right">
+		<div class="container">
+			<img src="svg/heart.svg" style="width: 25px;" class="my-3 mx-2">
+			<img src="svg/cart3.svg" style="width: 25px;" class="my-3 mx-2" onclick="location.href='cart.html'">
+			<img src="svg/person-circle.svg" style="width: 25px;" class="my-3 mx-2" onclick="location.href='login.html'"> 
+		</div>
+	</nav>
+
+	<!--헤더-->
+    <header>
+		<div class="container">
+			<div class="box_header_white border border-2 rounded-2">
+				<h1 align="center">T-SHIRTS</h1>
+			<nav>
+				<ul class="nav nav-underline justify-content-center"">
+					<li class="nav-item">
+					  <a class="nav-link link-dark" href="store.html">STORE</a>
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link link-dark" aria-current="page" href="diy.html">DIY</a>
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link link-dark disabled" href="#">CS</a>
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link link-dark" aria-disabled="true" href="aboutus.html">About us</a>
+					</li>
+				  </ul>
+			</nav>
+			</div>
+		</div>
+	</header>
+	
+    <div class="container d-flex justify-content-center">
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="card mt-5 p-3" style="width: 400px;">
+                        <div>주문 상품 정보</div>
+                        <div class="card" style="background-color:white">
+                            <div class="card-body">
+                                <p class="card-text">NIRVANA T-SHIRTS</p>
+                            </div>
+                            <div class="card-footer text-muted">
+                                배송비 3,000원
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="card  mt-3 p-3" style="width: 400px;">
+                        <div class="mb-3">주문자 정보</div>
+                        <div class="row">
+                            <div class="col">
+                                전지원<br>
+                                01012342223<br>
+                                email@naver.com
+                            </div>
+                            <div class="col d-flex justify-content-end align-items-start">
+                                <button type="button" class="btn btn-outline-secondary">수정</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="card  mt-3 p-3" style="width: 400px;">
+                        <div class="mb-3">배송 정보</div>
+                        <div class="row">
+                            <div class="col mb-4">
+                                전지원<br>
+                                01012342223
+                            </div>
+                            <div class="col d-flex justify-content-end align-items-start">
+                                <button type="button" class="btn btn-outline-secondary">수정</button>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div>서울특별시 용산구 청파로47길 100 (청파동2가) 숙명여자대학교<br>
+                            123-0000<br>
+                            04310
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="mb-2">배송메모</div>
+                            <select class="form-select ms-2" aria-label="Default select example" style="width:370px;">
+                                <option selected>배송메모를 선택해주세요.</option>
+                                <option value="1">배송 전에 미리 연락 바랍니다.</option>
+                                <option value="2">부재 시 경비실에 맡겨주세요.</option>
+                                <option value="3">부재 시 전화나 문자를 남겨주세요.</option>
+                                <option value="4">직접 입력</option>
+                              </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="row">
+                    <div class="card mt-5 ms-3 p-3" style="width: 300px;">
+                        <div class="mb-3">주문 요약</div>
+                        <div class="row">
+                            <div class="col">상품가격</div>
+                            <div class="col d-flex justify-content-end">24,000원</div>
+                        </div>
+                        <div class="row">
+                            <div class="col">배송비</div>
+                            <div class="col d-flex justify-content-end">3,000원</div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col">총 주문금액</div>
+                            <div class="col d-flex justify-content-end">27,000원</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="card  mt-3 ms-3 p-3" style="width: 300px;">
+                        <div class="mb-3">결제수단</div>
+                        <div class="mb-3">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" disabled>
+                                        <label class="form-check-label" for="flexRadioDefault1">신용카드</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" disabled>
+                                        <label class="form-check-label" for="flexRadioDefault2">가상계좌</label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                                        <label class="form-check-label" for="flexRadioDefault1">무통장입금</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" disabled>
+                                        <label class="form-check-label" for="flexRadioDefault2">카카오페이</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="card  mt-3 ms-3 p-3" style="width: 300px;">
+                        <div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                  구매조건 확인 및 결제진행 동의
+                                </label>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="m-1">
+                        <div>
+                            <div class="d-grid">
+                                <button class="btn btn-dark" type="button" style="width: 300px;" onclick="location.href='receipt.html'">결제하기</button>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+        </div>
+    </div>
+
+	<div class="container">
+		<footer class="py-3 my-4">
+		  <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+			<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+			<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+			<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+			<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+			<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+		  </ul>
+		  <p class="text-center text-muted">&copy; 2022 Company, Inc</p>
+		</footer>
+	  </div>
+</body>
+</html>
