@@ -120,39 +120,41 @@
                 <div class="row">
                     <div class="col">
                         <div class="card h-100 d-flex align-items-center">
-                            <img src="image/nirvana_tshirt.jpg" class="w-100 p-3">
+                            <img src="" class="w-100 p-3" id="p_image">
                         </div>
                     </div>
                     <div class="col">
                         <div class="card h-100">
                             
                             <div class="p-5">
-                                <h2 class="fw-bolder">NIRVANA T-SHIRT</h2>
-                                <h4>가격: 37, 000</h4>
+                                <h2 class="fw-bolder" id="p_name"></h2>
+                                <h4 id="p_price"></h4>
                                 <hr>
                                 배송 방법: 택배<br>
                                 배송비 3,000원 | 도서 산간 배송비 추가 
                                 <hr>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected>사이즈</option>
-                                    <option value="1">S</option>
-                                    <option value="2">M</option>
-                                    <option value="3">L</option>
-                                    <option value="3">XL</option>
-                                    <option value="3">2XL</option>
-                                </select>
-                                <div class="mb-3 mt-3 row">
-                                    <label for="number" class="col-sm col-form-label">수량</label>
-                                    <div class="col-sm-9">
-                                      <input type="text" class="form-control" id="number">
-                                    </div>
-                                  </div>
-								<div class="mt-5">
-									<div class="d-grid gap-2 col-auto mx-auto mx-3">
-										<button class="btn btn-secondary" type="button" onclick="location.href='order.html'">주문하기</button>
-										<button class="btn btn-outline-secondary" type="button">장바구니</button>
+								<form onsubmit="return validateAndStoreForm()">
+									<select id="size" class="form-select" aria-label="Default select example" required>
+										<option selected disabled value="">사이즈</option>
+										<option value="S">S</option>
+										<option value="M">M</option>
+										<option value="L">L</option>
+										<option value="XL">XL</option>
+										<option value="2XL">2XL</option>
+									</select>
+									<div class="mb-3 mt-3 row">
+										<label for="number" class="col-sm col-form-label">수량</label>
+										<div class="col-sm-9">
+											<input type="text" class="form-control" id="number">
+										</div>
 									</div>
-								</div>
+									<div class="mt-5">
+										<div class="d-grid gap-2 col-auto mx-auto mx-3">
+											<button class="btn btn-dark" type="submit">주문하기</button>
+											<button class="btn btn-outline-dark disabled" type="button">장바구니</button>
+										</div>
+									</div>
+								</form>
                             </div>
                         </div> 
                     </div>
@@ -218,7 +220,58 @@
         </div>
         
     </section>
+	<script>
+		// setItem
 
+		// getItem
+		const a_name = window.localStorage.getItem('a_name');
+		const a_price = window.localStorage.getItem('a_price'); 
+		const a_img = window.localStorage.getItem('a_img'); 
+
+		const b_name = window.localStorage.getItem('b_name');
+		const b_price = window.localStorage.getItem('b_price'); 
+		const b_img = window.localStorage.getItem('b_img'); 
+
+		const c_name = window.localStorage.getItem('c_name');
+		const c_price = window.localStorage.getItem('c_price'); 
+		const c_img = window.localStorage.getItem('c_img');
+
+		const now = window.localStorage.getItem('now');
+
+		function formatPrice(price) {
+			return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '원';
+		}
+
+		if (now == 'a') {
+			document.getElementById("p_image").src = a_img;
+			document.getElementById("p_name").innerHTML = a_name;
+			document.getElementById("p_price").innerHTML = formatPrice(a_price);
+		}
+		else if (now == 'b') {
+			document.getElementById("p_image").src = b_img;
+			document.getElementById("p_name").innerHTML = b_name;
+			document.getElementById("p_price").innerHTML = formatPrice(b_price);
+		} 
+		else if (now == 'c') {
+			document.getElementById("p_image").src = c_img;
+			document.getElementById("p_name").innerHTML = c_name;
+			document.getElementById("p_price").innerHTML = formatPrice(c_price);
+		}
+
+	</script>
+	<script>
+		function validateAndStoreForm() {
+			// Get the form elements
+			const size = document.getElementById('size').value;
+			const number = document.getElementById('number').value;
+	
+			window.localStorage.setItem('selected_size', size);
+			window.localStorage.setItem('selected_number', number);
+	
+			window.location.href = 'order.html';
+			return false;  
+		}
+	</script>
 	<!--footer-->
 	<div class="container">
 		<footer class="py-3 my-4">

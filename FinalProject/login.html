@@ -99,7 +99,7 @@
 		<div class="container">
 			<img src="svg/heart.svg" style="width: 25px;" class="my-3 mx-2">
 			<img src="svg/cart3.svg" style="width: 25px;" class="my-3 mx-2" onclick="location.href='cart.html'">
-			<img src="svg/person-circle.svg" style="width: 25px;" class="my-3 mx-2" onclick="location.href='login.html'"> 
+			<img src="svg/person-circle.svg" id="login_profile" style="width: 25px;" class="my-3 mx-2" onclick="location.href='login.html'"> 
 		</div>
 	</nav>
 
@@ -131,7 +131,7 @@
     <div class="container d-flex justify-content-center">
         <div class="card box_login m-5 p-3">
             <main class="form-signin w-100 m-auto">
-                <form>
+                <form onsubmit="handleLogin(event)">
                   <!--<img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">-->
                   <h1 class="h3 mt-2 mb-4 fw-normal" align="center">Login</h1>
               
@@ -173,5 +173,27 @@
 		  <p class="text-center text-muted">&copy; 2022 Company, Inc</p>
 		</footer>
 	  </div>
+
+	  <script>
+		if (document.cookie.includes('userStatus=member')) {
+			document.getElementById('login_profile').src='person.circle';
+			document.getElementById('login_profile').onclick = function() {
+					location.href = 'mypage.html'; // 클릭 시 mypage.html로 이동
+				};
+		}
+        function handleLogin(event) {
+            event.preventDefault(); // 폼 제출 기본 동작을 막음
+
+            // 사용자 입력 값 가져오기
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // 쿠키 설정
+            document.cookie = "userStatus=member; path=/;";
+
+            // 로그인이 성공하면 마이페이지로 이동
+            window.location.href = 'mypage.html';
+        }
+    </script>
 </body>
 </html>
