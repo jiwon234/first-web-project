@@ -112,7 +112,7 @@
 					  <a class="nav-link link-dark" href="store.html">STORE</a>
 					</li>
 					<li class="nav-item">
-					  <a class="nav-link link-dark " aria-current="page" href="diy.html">DIY</a>
+					  <a class="nav-link link-dark disabled" aria-current="page" href="#">DIY</a>
 					</li>
 					<li class="nav-item">
 					  <a class="nav-link link-dark disabled" href="#">CS</a>
@@ -131,63 +131,91 @@
             <div class="d-flex justify-content-center">
                 <div class="card mt-5 p-3" style="width: 400px;">
                     <h1 class="h3 mt-2 mb-4 fw-normal" align="center">Sign in</h1>
-                    <div class="mb-3">
-                        <label for="formFile" class="form-label">프로필사진</label>
-                        <input class="form-control" type="file" id="formFile">
-                    </div>
-                    <div class="mb-3">
-                        <input class="form-control" type="text" placeholder="이메일" aria-label="default input example">
-                        <input class="form-control" type="text" placeholder="비밀번호" aria-label="default input example">
-                        <input class="form-control" type="text" placeholder="비밀번호 확인" aria-label="default input example">
-                    </div>
-                    <!--성별-->
-                    <div class="mb-3">
-                        <label>성별</label>
-                        <div class="form-check">
-                        
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                              여자
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                남자
-                            </label>
-                        </div>
-                    </div>
-            
+					<form id="signup-form">
+						<div class="mb-3">
+							<label for="formFile" class="form-label">프로필사진</label>
+							<input class="form-control" type="file" id="formFile">
+						</div>
+						<hr>
+						<div class="mb-4">
+							<label for="exampleFormControlInput1" class="form-label">이름</label>
+							<input class="form-control"  id="name" type="text" placeholder="이름" required>
+						</div>
+						
+						<div class="mb-3">
+							<input class="form-control" id="email" type="email" placeholder="이메일" aria-label="default input example" required>
+							<input class="form-control" id="password" type="password" placeholder="비밀번호" aria-label="default input example" required>
+							<input class="form-control" id="confirmPassword" type="password" placeholder="비밀번호 확인" aria-label="default input example" required>
+						</div>
 
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">연락처</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="연락처">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">주소</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="주소">
-                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="상세주소">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">생년월일</label>
-                        <div class="d-flex col">
-                            <input type="email" class="form-control me-1" id="exampleFormControlInput1" placeholder="년">
-                            <input type="email" class="form-control me-1" id="exampleFormControlInput1" placeholder="월">
-                            <input type="email" class="form-control " id="exampleFormControlInput1" placeholder="일">
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="d-grid">
-                        <button class="btn btn-dark" type="button">가입하기</button>
-                        
-                      </div>
+						<!--성별-->
+						<div class="mb-3">
+							<label>성별</label>
+							<div class="form-check" >
+							
+								<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+								<label class="form-check-label" for="flexRadioDefault1">
+								  여자
+								</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+								<label class="form-check-label" for="flexRadioDefault2">
+									남자
+								</label>
+							</div>
+						</div>
+				
+	
+						<div class="mb-3">
+							<label for="exampleFormControlInput1" class="form-label">연락처</label>
+							<input class="form-control"  id="phoneNumber" type="tel" placeholder="연락처" required>
+						</div>
+	
+						<div class="mb-3">
+							<label for="exampleFormControlInput1" class="form-label">주소</label>
+							<input class="form-control" type="text" id="address" placeholder="주소" required>
+							<input type="text" class="form-control" id="detailedAddress" placeholder="상세주소" required>
+						</div>
+	
+						<div class="mb-3">
+							<label for="exampleFormControlInput1" class="form-label">생년월일</label>
+							<div class="d-flex col">
+								<input type="num" class="form-control me-1" id="exampleFormControlInput1" placeholder="년" maxlength="4" required>
+								<input type="num" class="form-control me-1" id="exampleFormControlInput1" placeholder="월" maxlength="2"required>
+								<input type="num" class="form-control " id="exampleFormControlInput1" placeholder="일" maxlength="2" required>
+							</div>
+						</div>
+						<hr>
+						<div class="d-grid">
+							<button class="btn btn-dark" type="submit">가입하기</button>
+						</div>
+					</form>
                 </div>
             </div>
         </div>
     </div>
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			document.getElementById('signup-form').addEventListener('submit', function(event) {
+				event.preventDefault(); // 폼의 기본 동작을 막음
+	
+				// 입력 필드 가져오기
+				var password = document.getElementById('password').value.trim();
+				var confirmPassword = document.getElementById('confirmPassword').value.trim();
+				var name = document.getElementById('name').value.trim();
 
+				if (password !== confirmPassword) {
+					alert('비밀번호와 비밀번호 확인이 일치하지 않습니다.');
+					return;
+				}
+				// 모든 유효성 검사 통과 시 폼을 서버로 제출할 수 있음
+				this.submit();
+				alert('안녕하세요 '+name+'님 환영합니다!');
+				location.href="login.html";
+			});
+		});
+	</script>
 	<div class="container">
 		<footer class="py-3 my-4">
 		  <ul class="nav justify-content-center border-bottom pb-3 mb-3">

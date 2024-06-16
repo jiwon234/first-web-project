@@ -1,157 +1,264 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-	<!--<meta charset="utf-8">-->
-	<!--<meta name="viewport">-->
-	<title>HTML + CSS 실습 5</title> 
-	<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-	
-	<style>
-		/*flex*/
-		.flex_col {
-			display: flex;
-			
-		}
-		.flex_row {
-			display: flex;
-			flex-direction: row;
-		}
-		.flex_wrap {
-			flex-wrap: wrap;
-			justify-content: center;
-		}
-		/*정렬*/
-		.center {
-			position: absolute;
-			left: 50%;
-			top: 50%;
-			transform: translate(-50%, -50%);
-		}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML + CSS 실습 5</title> 
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    
+    <style>
+        /*flex*/
+        .flex_col {
+            display: flex;
+            
+        }
+        .flex_row {
+            display: flex;
+            flex-direction: row;
+        }
+        .flex_wrap {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        /*정렬*/
+        .center {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
 
-		
-		/*div*/
-		.box_white {
-			background-color:#e9ecef;
-			/*margin: 10px;*/
-			padding: 10px;
-			border-radius: 5px;
-		}
-		/*header*/
-		.box_header_white {
-			background-color:#e9ecef;
-			/*margin: 10px;*/
-			padding: 20px;
-			border-radius: 5px;
-		}
+        
+        /*div*/
+        .box_white {
+            background-color:#e9ecef;
+            /*margin: 10px;*/
+            padding: 10px;
+            border-radius: 5px;
+        }
+        /*header*/
+        .box_header_white {
+            background-color:#e9ecef;
+            /*margin: 10px;*/
+            padding: 20px;
+            border-radius: 5px;
+        }
 
-		/*nav*/
-		/*aside*/
-		.box_aside_white {
-			width: 600px;
-			background-color: #e9ecef;
-			margin: 10px;
-			padding: 10px;
-			border-radius: 5px;
-		
-			
-		}
-		/*section*/
-		.box_section_white {
-			
-			
-			background-color: #e9ecef;
-			margin: 10px;
-			padding: 10px;
-			border-radius: 5px;
-			
-		}
-		/*section - card*/
-		.card_header {
-			background-color: #e9ecef;
-			margin: 10px;
-			padding: 20px;
-		}
-		.card_section {
-			background-color: #e9ecef;
-			margin: 5px;
-			
-		}
-	
-	</style>
-	<style>
-		/*section - card*/
-		.card {
-			background-color: #e9ecef;
-			margin: 5px;
-			
-		}
+        /*nav*/
+        /*aside*/
+        .box_aside_white {
+            width: 600px;
+            background-color: #e9ecef;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        
+            
+        }
+        /*section*/
+        .box_section_white {
+            
+            
+            background-color: #e9ecef;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            
+        }
+        /*section - card*/
+        .card_header {
+            background-color: #e9ecef;
+            margin: 10px;
+            padding: 20px;
+        }
+        .card_section {
+            background-color: #e9ecef;
+            margin: 5px;
+            
+        }
+    
+    </style>
+    <style>
+        /*section - card*/
+        .card {
+            background-color: #e9ecef;
+            margin: 5px;
+            max-width: 400px; /* 최대 너비 설정 */
+            transition: max-height 0.3s ease-out; /* 카드 높이에 대한 transition 효과 */
+            overflow: hidden; /* 초과된 부분 숨김 */
+        }
+
         /*login*/
         .box_login {
             padding: 10px;
             width: 400px;
         }
-	</style>
+    </style>
 
 </head>
 <body>
-	<!--최상단-->
-	<nav align="right">
-		<div class="container">
-			<img src="svg/heart.svg" style="width: 25px;" class="my-3 mx-2">
-			<img src="svg/cart3.svg" style="width: 25px;" class="my-3 mx-2" onclick="location.href='cart.html'">
-			<img src="svg/person-circle.svg" style="width: 25px;" class="my-3 mx-2" onclick="location.href='login.html'"> 
-		</div>
-	</nav>
+    <!--최상단-->
+    <nav align="right">
+        <div class="container">
+            <img src="svg/heart.svg" style="width: 25px;" class="my-3 mx-2">
+            <img src="svg/cart3.svg" style="width: 25px;" class="my-3 mx-2" onclick="location.href='cart.html'">
+            <img src="svg/person-circle.svg" style="width: 25px;" class="my-3 mx-2" onclick="location.href='login.html'"> 
+        </div>
+    </nav>
 
-	<!--헤더-->
+    <!--헤더-->
     <header>
-		<div class="container">
-			<div class="box_header_white border border-2 rounded-2">
-				<h1 align="center">T-SHIRTS</h1>
-			<nav>
-				<ul class="nav nav-underline justify-content-center"">
-					<li class="nav-item">
-					  <a class="nav-link link-dark" href="store.html">STORE</a>
-					</li>
-					<li class="nav-item">
-					  <a class="nav-link link-dark" aria-current="page" href="diy.html">DIY</a>
-					</li>
-					<li class="nav-item">
-					  <a class="nav-link link-dark disabled" href="#">CS</a>
-					</li>
-					<li class="nav-item">
-					  <a class="nav-link link-dark active" aria-disabled="true" href="aboutus.html">About us</a>
-					</li>
-				  </ul>
-			</nav>
-			</div>
-		</div>
-	</header>
-	
+        <div class="container">
+            <div class="box_header_white border border-2 rounded-2">
+                <h1 align="center">T-SHIRTS</h1>
+            <nav>
+                <ul class="nav nav-underline justify-content-center">
+                    <li class="nav-item">
+                      <a class="nav-link link-dark" href="store.html">STORE</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link link-dark disabled" aria-current="page" href="#">DIY</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link link-dark disabled" href="#">CS</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link link-dark active" aria-disabled="true" href="aboutus.html">About us</a>
+                    </li>
+                  </ul>
+            </nav>
+            </div>
+        </div>
+    </header>
+    
     <div class="container d-flex justify-content-center">
-        <div class="card mt-5 p-3" style="width: 400px;">
-            <h1 class="h3 mt-2 mb-4 fw-normal" align="center">About us</h1>
-            <div class="d-flex justify-content-center">
+        <div class="card card_aboutus mt-5 p-3" style="width: 400px; max-height: 220px;">
+            <h1 class="h3 mt-2 mb-4 fw-normal" id="aboutus" align="center">About us</h1>
                 <div class="row">
-                    <div class="col my-3 mb-4"><img src="svg/geo-alt.svg" style="width:50px;"></div>
-                    <div class="col my-3 mb-4"><img src="svg/instagram.svg" style="width:50px;"></div>
-                    <div class="col my-3 mb-4"><img src="svg/telephone.svg" style="width:50px;"></div>
+                    <div class="d-flex justify-content-center">
+                        <div class="row">
+                            <div class="col my-3 mb-2">
+								<button type="button" id="geo-button" class="btn btn-light rounded-circle" style="width:80px; height:80px;">
+									<img id="geo-icon" src="svg/geo-alt.svg" style="width:50px;">
+								</button>
+							</div>
+							<div class="col my-3 mb-2">
+								<button type="button" id="ig-button"class="btn btn-light rounded-circle" style="width:80px; height:80px;">
+									<img  id="ig-icon" src="svg/instagram.svg" style="width:50px;">
+								</button>
+							</div>
+							<div class="col my-3 mb-2">
+								<button type="button" id="call-button" class="btn btn-light rounded-circle" style="width:80px; height:80px;">
+									<img id="call-icon" src="svg/telephone.svg" style="width:50px;">
+								</button>
+							</div>
+							
+				
+							
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="msg" class="my-3 d-flex justify-content-center"></div>
+                    <iframe id="map" width="350" height="250" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" ></iframe><br/>
+                    <div id="ig" class="d-flex justify-content-center"></div>
+                </div>
+                <div class="row">
                 </div>
             </div>
         </div>
     </div>
-        
-	<div class="container">
-		<footer class="py-3 my-4">
-		  <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-			<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-			<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-			<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
-			<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
-			<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
-		  </ul>
-		  <p class="text-center text-muted">&copy; 2022 Company, Inc</p>
-		</footer>
-	  </div>
+    
+    <script>
+        function showMap(lat, lon, acc) {
+            lat = lat.toPrecision(6); 
+            lon = lon.toPrecision(6);
+            let text = "서울특별시 용산구 청파로47길 100";
+            document.getElementById("msg").innerHTML = text;
+            let map = document.getElementById("map");
+            map.src = "https://www.openstreetmap.org/export/embed.html?bbox=" 
+                      + (parseFloat(lon)-0.002) + "%2C"
+                      + (parseFloat(lat)-0.002) + "%2C" 
+                      + (parseFloat(lon)+0.002) + "%2C" 
+                      + (parseFloat(lat)+0.002)
+                      + "&layer=mapnik";
+            map.style.visibility = "visible";
+            
+            // 카드 높이 확장
+            document.querySelector(".card_aboutus").style.maxHeight = "800px";
+        }
+
+        document.getElementById("geo-button").addEventListener("click", function() {
+			document.getElementById("ig-button").classList.remove("active");
+			document.getElementById("call-button").classList.remove("active");
+
+			document.getElementById("geo-button").classList.add("active");
+			document.getElementById("ig-icon").style.filter = "invert(0%)";
+			document.getElementById("geo-icon").style.filter = "invert(100%)";
+			document.getElementById("call-icon").style.filter = "invert(0%)";
+            let lat = 37.5454; // 숙명여자대학교 위도
+            let lon = 126.9646; // 숙명여자대학교 경도
+            let acc = 0; // 정확도
+            showMap(lat, lon, acc);
+        });
+
+        document.getElementById("ig-button").addEventListener("click", function() {
+			document.getElementById("geo-button").classList.remove("active");
+			document.getElementById("call-button").classList.remove("active");
+
+			document.getElementById("ig-button").classList.add("active");
+			document.getElementById("ig-icon").style.filter = "invert(100%)";
+			document.getElementById("geo-icon").style.filter = "invert(0%)";
+			document.getElementById("call-icon").style.filter = "invert(0%)";
+            document.getElementById("msg").innerHTML = "<a href='https://www.instagram.com/sookmyung_womens_univ/' target='_blank'>@sookmyung_womens_univ</a>";
+			document.getElementById("msg").style.href = "https://www.instagram.com/sookmyung_womens_univ/";
+            let map = document.getElementById("map");
+            map.style.visibility = "hidden";
+            // 카드 높이 축소
+            document.querySelector(".card_aboutus").style.maxHeight = "250px"; // 적절한 높이로 설정
+        });
+		
+		document.getElementById("call-button").addEventListener("click", function() {
+			document.getElementById("ig-button").classList.remove("active");
+			document.getElementById("geo-button").classList.remove("active");
+			document.getElementById("call-button").classList.add("active");
+			document.getElementById("ig-icon").style.filter = "invert(0%)";
+			document.getElementById("geo-icon").style.filter = "invert(0%)";
+			document.getElementById("call-icon").style.filter = "invert(100%)";
+            document.getElementById("msg").innerHTML = "02-710-9114<br>";
+            let map = document.getElementById("map");
+            map.style.visibility = "hidden";
+            // 카드 높이 축소
+            document.querySelector(".card_aboutus").style.maxHeight = "250px"; // 적절한 높이로 설정
+        });
+
+		document.getElementById("aboutus").addEventListener("click", function() {
+			document.getElementById("geo-button").classList.remove("active");
+			document.getElementById("call-button").classList.remove("active");
+
+			document.getElementById("ig-button").classList.remove("active");
+			document.getElementById("ig-icon").style.filter = "invert(0%)";
+			document.getElementById("geo-icon").style.filter = "invert(0%)";
+			document.getElementById("call-icon").style.filter = "invert(0%)";
+            document.getElementById("msg").innerHTML = "";
+            let map = document.getElementById("map");
+            map.style.visibility = "hidden";
+            // 카드 높이 축소
+            document.querySelector(".card_aboutus").style.maxHeight = "220px"; // 적절한 높이로 설정
+        });
+    </script>
+
+    <div class="container">
+        <footer class="py-3 my-4">
+          <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+          </ul>
+          <p class="text-center text-muted">&copy; 2022 Company, Inc</p>
+        </footer>
+      </div>
 </body>
 </html>

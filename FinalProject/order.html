@@ -112,7 +112,7 @@
 					  <a class="nav-link link-dark" href="store.html">STORE</a>
 					</li>
 					<li class="nav-item">
-					  <a class="nav-link link-dark" aria-current="page" href="diy.html">DIY</a>
+					  <a class="nav-link link-dark disabled" aria-current="page" href="#">DIY</a>
 					</li>
 					<li class="nav-item">
 					  <a class="nav-link link-dark disabled" href="#">CS</a>
@@ -133,8 +133,9 @@
                     <div class="card mt-5 p-3" style="width: 400px;">
                         <div>주문 상품 정보</div>
                         <div class="card" style="background-color:white">
-                            <div class="card-body">
-                                <p class="card-text">NIRVANA T-SHIRTS</p>
+                            <div class="card-body row">
+                                <img id="p_image" class="col" style="width:30px;">
+                                <p class="card-text col-8" id="selected_product"></p>
                             </div>
                             <div class="card-footer text-muted">
                                 배송비 3,000원
@@ -194,7 +195,7 @@
                         <div class="mb-3">주문 요약</div>
                         <div class="row">
                             <div class="col">상품가격</div>
-                            <div class="col d-flex justify-content-end">24,000원</div>
+                            <div class="col d-flex justify-content-end" id="only_product">24,000원</div>
                         </div>
                         <div class="row">
                             <div class="col">배송비</div>
@@ -203,7 +204,7 @@
                         <hr>
                         <div class="row">
                             <div class="col">총 주문금액</div>
-                            <div class="col d-flex justify-content-end">27,000원</div>
+                            <div class="col d-flex justify-content-end" id="total_price">27,000원</div>
                         </div>
                     </div>
                 </div>
@@ -275,5 +276,40 @@
 		  <p class="text-center text-muted">&copy; 2022 Company, Inc</p>
 		</footer>
 	  </div>
+
+      <script>
+        // getItem
+        const now = window.localStorage.getItem('now');
+        let item_name, item_img, item_price;
+    
+        if (now === 'a') {
+            item_name = window.localStorage.getItem('a_name');
+            item_img = window.localStorage.getItem('a_img');
+            item_price = window.localStorage.getItem('a_price');
+        } else if (now === 'b') {
+            item_name = window.localStorage.getItem('b_name');
+            item_img = window.localStorage.getItem('b_img');
+            item_price = window.localStorage.getItem('b_price');
+        } else if (now === 'c') {
+            item_name = window.localStorage.getItem('c_name');
+            item_img = window.localStorage.getItem('c_img');
+            item_price = window.localStorage.getItem('c_price');
+        }
+    
+        let size = window.localStorage.getItem('selected_size');
+        let count = window.localStorage.getItem('selected_number');
+    
+        function formatPrice(price) {
+            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '원';
+        }
+    
+        // 결과 출력
+        document.getElementById("selected_product").innerHTML = item_name + '<br>' + parseInt(item_price).toLocaleString()+'원' + '<br>' + 'size: ' + size + '<br>'+ '수량: '+ count;
+    
+        document.getElementById("p_image").src = item_img;
+        document.getElementById("only_product").innerHTML = (parseInt(item_price)*parseInt(count)).toLocaleString() + '원';
+       document.getElementById("total_price").innerHTML = (parseInt(item_price)*parseInt(count) + 3000).toLocaleString() + '원';
+    </script>
+    
 </body>
 </html>

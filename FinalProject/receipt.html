@@ -112,7 +112,7 @@
 					  <a class="nav-link link-dark" href="store.html">STORE</a>
 					</li>
 					<li class="nav-item">
-					  <a class="nav-link link-dark" aria-current="page" href="diy.html">DIY</a>
+					  <a class="nav-link link-dark" aria-current="page" href="#">DIY</a>
 					</li>
 					<li class="nav-item">
 					  <a class="nav-link link-dark disabled" href="#">CS</a>
@@ -129,29 +129,29 @@
     <div class="container">
         <div class="">
             <div class="d-flex justify-content-center">
-                <div class="card mt-5 p-3" style="width: 400px;">
-                    <h1 class="h3 mt-2 mb-4 fw-normal" align="center">주문 완료</h1>
+                <div class="card mt-5 p-5 pt-3" style="width: 400px;">
+                    <h1 class="h3 mt-2 mb-5 fw-normal" align="center">주문 완료</h1>
                     <div class="mb-3">
                         <div class="row">
                             <div class="col">입금 계좌 안내</div>
                             <div class="col-7">농협<br>
                             1234567890<br>
-                            전지원<br>
-                            27,000원
+                            눈송이<br>
+                            <div id="total_price">27000원</div>
                             </div>
                         </div>
                         <hr>
                         <div class="mb-3">
                             <div class="row">
                                 <div class="col">입금 기간</div>
-                                <div class="col-7">2024-06-15 15:13까지</div>
+                                <div class="col-7" id="deadline"></div>
                             </div>
                         </div>
                         <hr>
                         <div class="mb-3">
                             <div class="row">
                                 <div class="col">주문번호</div>
-                                <div class="col-7">202406146428471</div>
+                                <div class="col-7" id="orderNumber"></div>
                             </div>
                         </div>
                         <hr>
@@ -167,7 +167,7 @@
                             </div>
                         </div>
                         <hr>
-                        <div class="mb-3">
+                        <div class="">
                             <div class="row">
                                 <div class="col">배송 방법</div>
                                 <div class="col-7">택배</div>
@@ -176,14 +176,105 @@
                     </div>
                     
                     <div class="d-grid">
-                        <button class="btn btn-dark" type="button">주문서로</button>
+                        <!--<button class="btn btn-dark" type="button">주문서로</button>-->
                         
-                      </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
+	<script>
+        // getItem
+        const now = window.localStorage.getItem('now');
+        let item_name, item_img, item_price;
+    
+        if (now === 'a') {
+            item_name = window.localStorage.getItem('a_name');
+            item_img = window.localStorage.getItem('a_img');
+            item_price = window.localStorage.getItem('a_price');
+        } else if (now === 'b') {
+            item_name = window.localStorage.getItem('b_name');
+            item_img = window.localStorage.getItem('b_img');
+            item_price = window.localStorage.getItem('b_price');
+        } else if (now === 'c') {
+            item_name = window.localStorage.getItem('c_name');
+            item_img = window.localStorage.getItem('c_img');
+            item_price = window.localStorage.getItem('c_price');
+        }
+    
+        let size = window.localStorage.getItem('selected_size');
+        let count = window.localStorage.getItem('selected_number');
+    
+        function formatPrice(price) {
+            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '원';
+        }
+    
+        // 결과 출력
+        //document.getElementById("selected_product").innerHTML = item_name + '<br>' + parseInt(item_price).toLocaleString()+'원' + '<br>' + 'size: ' + size + '<br>'+ '수량: '+ count;
+    
+        //document.getElementById("p_image").src = item_img;
+        //document.getElementById("only_product").innerHTML = (parseInt(item_price)*parseInt(count)).toLocaleString() + '원';
+        document.getElementById("total_price").innerHTML = (parseInt(item_price)*parseInt(count) + 3000).toLocaleString() + '원';
+
+		function getFutureDate(daysToAdd) {
+            const now = new Date();
+            now.setDate(now.getDate() + daysToAdd);
+            return now;
+        }
+
+        // 날짜와 시간을 형식에 맞게 문자열로 변환합니다.
+        function formatDate(date) {
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            const hours = String(date.getHours()).padStart(2, '0');
+            const minutes = String(date.getMinutes()).padStart(2, '0');
+            return `${year}-${month}-${day} ${hours}:${minutes}까지`;
+        }
+
+        // 계산한 날짜와 시간을 HTML 요소에 출력합니다.
+        document.addEventListener('DOMContentLoaded', function() {
+            const futureDate = getFutureDate(3);
+            const formattedDate = formatDate(futureDate);
+            document.getElementById('deadline').textContent = formattedDate;
+        });
+
+		// 현재 날짜를 8자리 문자열로 변환합니다.
+        function getTodayDate() {
+            const now = new Date();
+            const year = String(now.getFullYear());
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            return year + month + day;
+        }
+
+        // 7자리 랜덤 숫자를 생성합니다.
+        function getRandomNumber() {
+            return Math.floor(100000 + Math.random() * 900000); // 1000000에서 9999999 사이의 숫자 생성
+        }
+
+        // 주문번호를 생성합니다.
+        function generateOrderNumber() {
+            const todayDate = getTodayDate();
+            const randomNumber = getRandomNumber();
+			window.localStorage.setItem('ordernumber', todayDate + randomNumber.toString());
+            return todayDate + randomNumber;
+        }
+		
+		// 페이지가 로드되었을 때 실행합니다.
+        document.addEventListener('DOMContentLoaded', function() {
+            // 3일 후의 날짜와 시간을 계산하여 출력합니다.
+            const futureDate = getFutureDate(3);
+            const formattedDate = formatDate(futureDate);
+            document.getElementById('deadline').textContent = formattedDate;
+
+            // 주문번호를 생성하여 출력합니다.
+			let count = window.localStorage.getItem('selected_number');
+            const orderNumber = generateOrderNumber();
+            document.getElementById('orderNumber').textContent = orderNumber;
+        });
+    </script>
 	<div class="container">
 		<footer class="py-3 my-4">
 		  <ul class="nav justify-content-center border-bottom pb-3 mb-3">

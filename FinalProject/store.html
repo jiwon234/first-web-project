@@ -74,6 +74,7 @@
 			
 			
 		}
+
 	
 	</style>
 
@@ -99,7 +100,7 @@
 					  <a class="nav-link link-dark active" href="store.html">STORE</a>
 					</li>
 					<li class="nav-item">
-					  <a class="nav-link link-dark" aria-current="page" href="diy.html">DIY</a>
+					  <a class="nav-link link-dark disabled" href="#">DIY</a>
 					</li>
 					<li class="nav-item">
 					  <a class="nav-link link-dark disabled" href="#">CS</a>
@@ -202,51 +203,53 @@
 						<div class="col w-100" >
 							<div class="card text-bg-light my-2">
 								<!--<div class="card-header"></div>-->
-								<div class="d-flex justify-content-center" >
-									<img src="image/nirvana_tshirt.jpg" class="card-img-top m-3 w-100" onclick="location.href='product.html'">
+								<div class="d-flex justify-content-center m-2" >
+									<img class="card-img-top w-100" id="image-1" onclick=" window.localStorage.setItem('now', 'a'); location.href='product.html';">
 								</div>
 								
 								<div class="card-body">
-									<h5 class="card-title">NIRVANA T-Shirt</h5>
-									<p class="card-text">37,000₩</p>
+									<h5 class="card-title" id="name-1"></h5>
+									<p class="card-text" id="price-1"></p>
 									<div class="d-flex flex-row-reverse" onclick="toggleHeart(this)"> 
 										<img class="heart-icon" src="svg/heart.svg" style="width:25px;">
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="col">
+						<div class="col w-100" >
 							<div class="card text-bg-light my-2">
 								<!--<div class="card-header"></div>-->
-								<div class="d-flex justify-content-center">
-									<img src="image/nirvana_tshirt.jpg" class="card-img-top m-3 w-100" onclick="location.href='product.html'">
+								<div class="d-flex justify-content-center m-2" >
+									<img class="card-img-top w-100" id="image-2" onclick=" window.localStorage.setItem('now', 'b'); location.href='product.html';">
 								</div>
 								
 								<div class="card-body">
-									<h5 class="card-title">NIRVANA T-Shirt</h5>
-									<p class="card-text">37,000₩</p>
+									<h5 class="card-title" id="name-2"></h5>
+									<p class="card-text" id="price-2"></p>
 									<div class="d-flex flex-row-reverse" onclick="toggleHeart(this)"> 
 										<img class="heart-icon" src="svg/heart.svg" style="width:25px;">
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="col">
+						<div class="col w-100" >
 							<div class="card text-bg-light my-2">
 								<!--<div class="card-header"></div>-->
-								<div class="d-flex justify-content-center">
-									<img src="image/nirvana_tshirt.jpg" class="card-img-top m-3 w-100" onclick="location.href='product.html'">
+								<div class="d-flex justify-content-center m-2" >
+									<img class="card-img-top w-100" id="image-3" onclick="window.localStorage.setItem('now', 'c'); location.href='product.html';">
 								</div>
 								
 								<div class="card-body">
-									<h5 class="card-title">NIRVANA T-Shirt</h5>
-									<p class="card-text">37,000₩</p>
+									<h5 class="card-title" id="name-3"></h5>
+									<p class="card-text" id="price-3"></p>
 									<div class="d-flex flex-row-reverse" onclick="toggleHeart(this)"> 
 										<img class="heart-icon" src="svg/heart.svg" style="width:25px;">
 									</div>
 								</div>
 							</div>
 						</div>
+
+					
 					</div>
 				</div>
 				
@@ -277,6 +280,51 @@
 		  <p class="text-center text-muted">&copy; 2022 Company, Inc</p>
 		</footer>
 	</div>
-	  
+	<script>
+		// setItem
+		window.localStorage.setItem('now', 'a');
+
+		window.localStorage.setItem('a_name', 'NIRVANA T-SHIRT');
+		window.localStorage.setItem('a_price', '27000');
+		window.localStorage.setItem('a_img', 'image/nirvana_tshirt.jpg');
+
+		window.localStorage.setItem('b_name', 'GORILLAZ T-SHIRT');
+		window.localStorage.setItem('b_price', '24000');
+		window.localStorage.setItem('b_img', 'image/gorillaz_tshirt.jpg');
+
+		window.localStorage.setItem('c_name', 'STROKES T-SHIRT');
+		window.localStorage.setItem('c_price', '28000');
+		window.localStorage.setItem('c_img', 'image/strokes_tshirt.jpg');
+		
+		// getItem
+		const a_name = window.localStorage.getItem('a_name');
+		const a_price = window.localStorage.getItem('a_price'); 
+		const a_img = window.localStorage.getItem('a_img'); 
+
+		const b_name = window.localStorage.getItem('b_name');
+		const b_price = window.localStorage.getItem('b_price'); 
+		const b_img = window.localStorage.getItem('b_img'); 
+
+		const c_name = window.localStorage.getItem('c_name');
+		const c_price = window.localStorage.getItem('c_price'); 
+		const c_img = window.localStorage.getItem('c_img');
+
+		function formatPrice(price) {
+        return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '원';
+    }
+
+		// 결과 출력
+		document.getElementById("image-1").src = a_img;
+		document.getElementById("name-1").innerHTML = a_name;
+		document.getElementById("price-1").innerHTML = formatPrice(a_price);
+
+		document.getElementById("image-2").src = b_img;
+		document.getElementById("name-2").innerHTML = b_name;
+		document.getElementById("price-2").innerHTML = formatPrice(b_price);
+
+		document.getElementById("image-3").src = c_img;
+		document.getElementById("name-3").innerHTML = c_name;
+		document.getElementById("price-3").innerHTML = formatPrice(c_price);
+	</script>
 </body>
 </html>
