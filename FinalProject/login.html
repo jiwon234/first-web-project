@@ -196,14 +196,14 @@
 
 	  <script>
 		let userStatus = GetCookie('userStatus');
-
+		SetCookie('userStatus', 'non-member');
 		if (userStatus == null) {
 			document.getElementById('login_profile').src='svg/question-circle.svg';
 		} 
 		else if (userStatus == 'member') {
 			document.getElementById('login_profile').src='svg/person-circle.svg';
 		}
-		console.log('sksksk')
+		
     </script>
 </body>
 </html>
