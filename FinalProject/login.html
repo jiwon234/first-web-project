@@ -196,7 +196,7 @@
 
 	  <script>
 		let userStatus = GetCookie('userStatus');
-		SetCookie('userStatus', 'member');
+		SetCookie('userStatus', 'non-member');
 
 		let loginProfile = document.getElementById('login_profile');
 
@@ -211,7 +211,22 @@
 				location.href = 'mypage.html';
 			};
 		}
-			
+		
+		function handleLogin(event) {
+            event.preventDefault(); // 폼 제출 기본 동작을 막음
+
+            // 사용자 입력 값 가져오기
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // 쿠키 설정
+            SetCookie('userStatus', 'member');
+
+            // 로그인이 성공하면 마이페이지로 이동
+            window.location.href = 'mypage.html';
+        }
+
+		console.log('11');
     </script>
 </body>
 </html>
