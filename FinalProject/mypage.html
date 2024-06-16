@@ -190,7 +190,7 @@
 	<script>
 		let userStatus = GetCookie('userStatus');
 		let loginProfile = document.getElementById('login_profile');
-
+		SetCookie('userStatus', 'member');
 		if (userStatus == null || userStatus == 'non-member') {
         loginProfile.src = 'svg/question-circle.svg';
         loginProfile.onclick = function() {
