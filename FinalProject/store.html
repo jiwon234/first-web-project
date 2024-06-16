@@ -77,6 +77,26 @@
 
 	
 	</style>
+	<script>
+		function GetCookie (name) {
+			// 쿠키문자열을 ;을 경계로 분할
+			let pairs = document.cookie.split(";"); 
+			for(let i=0; i<pairs.length; i++) {
+				// 쿠키 앞뒤의 빈칸 제거
+				let pair = pairs[i].trim(); 
+				let unit = pair.split("=");
+				if(unit[0] == name)
+				return unescape(unit[1]);
+			}
+			return null;
+			}
+		function SetCookie (name, value, expireDate) {
+			let cookieStr = name + "=" + escape(value) + 
+			((expireDate == null)?"":("; expires=" + 
+			expireDate.toUTCString()));
+			document.cookie = cookieStr;
+		}
+		</script>
 
 </head>
 <body>
@@ -85,7 +105,7 @@
 		<div class="container">
 			<img src="svg/heart.svg" style="width: 25px;" class="my-3 mx-2">
 			<img src="svg/cart3.svg" style="width: 25px;" class="my-3 mx-2" onclick="location.href='cart.html'">
-			<img src="svg/person-circle.svg" style="width: 25px;" class="my-3 mx-2" onclick="location.href='login.html'"> 
+			<img src="svg/person-circle.svg" id="login_profile" style="width: 25px;" class="my-3 mx-2" onclick="location.href='login.html'"> 
 		</div>
 	</nav>
 
@@ -364,5 +384,23 @@
 		document.getElementById("name-3").innerHTML = c_name;
 		document.getElementById("price-3").innerHTML = formatPrice(c_price);
 	</script>
+	<script>
+		let userStatus = GetCookie('userStatus');
+		SetCookie('userStatus', 'non-member');
+
+		let loginProfile = document.getElementById('login_profile');
+
+		if (userStatus == null || userStatus == 'non-member') {
+        loginProfile.src = 'svg/question-circle.svg';
+        loginProfile.onclick = function() {
+            location.href = 'login.html';
+        };
+		} else if (userStatus == 'member') {
+			loginProfile.src = 'svg/person-circle.svg';
+			loginProfile.onclick = function() {
+				location.href = 'mypage.html';
+			};
+		}
+</script>
 </body>
 </html>
