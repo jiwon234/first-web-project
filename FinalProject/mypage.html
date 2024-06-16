@@ -165,7 +165,7 @@
                         </div>
                         <div class="d-flex gap-2">
 							<form onsubmit="handleLogout(event)">
-								<button id="logout"class="btn btn-light" type="button" style="width:200px">로그아웃</button>
+								<button id="logout"class="btn btn-light" type="submit" style="width:200px">로그아웃</button>
 							</form>
                         </div>
                     </div>
@@ -173,12 +173,6 @@
             </div>
         </div>
     </section>
-
-	<script>
-		document.getElementById('logout').addEventListener('click', function() {
-            confirm('정말 로그아웃 하시겠습니까?');
-		});
-	</script>
 
 	<!--footer-->
 	<div class="container">
@@ -211,16 +205,17 @@
 		function handleLogout(event) {
             event.preventDefault(); // 폼 제출 기본 동작을 막음
 
-            // 사용자 입력 값 가져오기
+            // 로그아웃 확인
+            if (confirm('정말 로그아웃 하시겠습니까?')) {
+                // 쿠키 설정
+                SetCookie('userStatus', 'non-member');
 
-            // 쿠키 설정
-            SetCookie('userStatus', 'non-member');
-
-            // 로그인이 성공하면 마이페이지로 이동
-            window.location.href = 'store.html';
+                // 로그아웃 후 페이지 이동
+                window.location.href = 'store.html';
+            }
         }
 
-		console.log('123');
+		console.log('122324');
 </script>
 </body>
 </html>
