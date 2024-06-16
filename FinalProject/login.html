@@ -196,17 +196,22 @@
 
 	  <script>
 		let userStatus = GetCookie('userStatus');
-		SetCookie('userStatus', 'non-member');
-		if (userStatus == null) {
-			document.getElementById('login_profile').src='svg/question-circle.svg';
-		} 
-		else if (userStatus == 'non-member') {
-			document.getElementById('login_profile').src='svg/question-circle.svg';
+		SetCookie('userStatus', 'member');
+
+		let loginProfile = document.getElementById('login_profile');
+
+		if (userStatus == null || userStatus == 'non-member') {
+        loginProfile.src = 'svg/question-circle.svg';
+        loginProfile.onclick = function() {
+            location.href = 'login.html';
+        };
+		} else if (userStatus == 'member') {
+			loginProfile.src = 'svg/person-circle.svg';
+			loginProfile.onclick = function() {
+				location.href = 'mypage.html';
+			};
 		}
-		else if (userStatus == 'member') {
-			document.getElementById('login_profile').src='svg/person-circle.svg';
-		}
-		
+			
     </script>
 </body>
 </html>
