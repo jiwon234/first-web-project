@@ -200,6 +200,9 @@
 		if (userStatus == null) {
 			document.getElementById('login_profile').src='svg/question-circle.svg';
 		} 
+		else if (userStatus == 'non-member') {
+			document.getElementById('login_profile').src='svg/question-circle.svg';
+		}
 		else if (userStatus == 'member') {
 			document.getElementById('login_profile').src='svg/person-circle.svg';
 		}
