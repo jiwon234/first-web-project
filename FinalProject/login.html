@@ -175,6 +175,37 @@
 	  </div>
 
 	  <script>
+		function GetCookie (name) {
+			// 쿠키문자열을 ;을 경계로 분할
+			let pairs = document.cookie.split(";"); 
+			for(let i=0; i<pairs.length; i++) {
+				// 쿠키 앞뒤의 빈칸 제거
+				let pair = pairs[i].trim(); 
+				let unit = pair.split("=");
+				if(unit[0] == name)
+				return unescape(unit[1]);
+			}
+			return null;
+		}
+		function SetCookie (name, value, expireDate) {
+			let cookieStr = name + "=" + escape(value) + 
+			((expireDate == null)?"":("; expires=" + 
+			expireDate.toUTCString()));
+			document.cookie = cookieStr;
+		}
+		
+		// 예제: userStatus라는 쿠키에 "member" 값을 설정하기 (유효기간 1시간)
+		let expireDate = new Date();
+		expireDate.setTime(expireDate.getTime() + (1 * 60 * 60 * 1000)); // 1시간 후 만료
+		SetCookie("userStatus", "member", expireDate);
+
+		let status = GetCookie("userStatus");
+		if (status) {
+			console.log("userStatus 쿠키 값:", status);
+		} else {
+			console.log("userStatus 쿠키가 설정되지 않았습니다.");
+		}
+
 		if (document.cookie.includes('userStatus=member')) {
 			document.getElementById('login_profile').src='person.circle';
 			document.getElementById('login_profile').onclick = function() {
