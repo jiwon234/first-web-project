@@ -202,7 +202,7 @@
                         <td id="count-2">1</td>
                         <td class="text-center">
 							<div id="total-price-2"></div>
-							<button class="btn btn-light mt-5" id="changeOption2">옵션 변경</button>
+							<button class="btn btn-light mt-5" id="changeOption2" onclick="changeOption(2)">옵션 변경</button>
 						</td>
                       </tr>
                       <tr>
@@ -223,7 +223,7 @@
                         <td id="count-3"></td>
                         <td class="text-center">
 							<div id="total-price-3"></div>
-							<button class="btn btn-light mt-5" id="changeOption3">옵션 변경</button>
+							<button class="btn btn-light mt-5" id="changeOption3" onclick="changeOption(3)">옵션 변경</button>
 						</td>
                       </tr>
                     </tbody>
@@ -269,20 +269,20 @@
 
 		// getItem
 		let a_name = window.localStorage.getItem('a_name');
-		let a_price = window.localStorage.getItem('a_price'); 
+		let price_1 = window.localStorage.getItem('a_price'); 
 		let a_img = window.localStorage.getItem('a_img'); 
 		let count_1 = window.localStorage.getItem('count_1'); 
 		let size_1 = window.localStorage.getItem('size_1');
 
 
 		let b_name = window.localStorage.getItem('b_name');
-		let b_price = window.localStorage.getItem('b_price'); 
+		let price_2 = window.localStorage.getItem('b_price'); 
 		let b_img = window.localStorage.getItem('b_img'); 
 		let count_2 = window.localStorage.getItem('count_2');
 		let size_2 = window.localStorage.getItem('size_2');
 
 		let c_name = window.localStorage.getItem('c_name');
-		let c_price = window.localStorage.getItem('c_price'); 
+		let price_3 = window.localStorage.getItem('c_price'); 
 		let c_img = window.localStorage.getItem('c_img');
 		let count_3 = window.localStorage.getItem('count_3');
 		let size_3 = window.localStorage.getItem('size_3');
@@ -293,30 +293,30 @@
 
 		// 결과 출력
 		document.getElementById("image-1").src = a_img;
-		document.getElementById("price-1").innerHTML = formatPrice(a_price);
+		document.getElementById("price-1").innerHTML = formatPrice(price_1);
 		document.getElementById("name-1").innerHTML = a_name;
-		document.getElementById("total-price-1").innerHTML = formatPrice(parseInt(a_price)*parseInt(count_1));
+		document.getElementById("total-price-1").innerHTML = formatPrice(parseInt(price_1)*parseInt(count_1));
 		document.getElementById('size-1').innerHTML = size_1;
 		document.getElementById('count-1').innerHTML = count_1.toString();
 
 		document.getElementById("image-2").src = b_img;
-		document.getElementById("price-2").innerHTML = formatPrice(b_price);
+		document.getElementById("price-2").innerHTML = formatPrice(price_2);
 		document.getElementById("name-2").innerHTML = b_name;
-		document.getElementById("total-price-2").innerHTML = formatPrice(parseInt(b_price)*parseInt(count_2));
+		document.getElementById("total-price-2").innerHTML = formatPrice(parseInt(price_2)*parseInt(count_2));
 		document.getElementById('size-2').innerHTML = size_2;
 		document.getElementById('count-2').innerHTML = count_2.toString();
 
 		document.getElementById("image-3").src = c_img;
-		document.getElementById("price-3").innerHTML = formatPrice(c_price);
+		document.getElementById("price-3").innerHTML = formatPrice(price_3);
 		document.getElementById("name-3").innerHTML = c_name;
-		document.getElementById("total-price-3").innerHTML = formatPrice(parseInt(c_price)*parseInt(count_3));
+		document.getElementById("total-price-3").innerHTML = formatPrice(parseInt(price_3)*parseInt(count_3));
 		document.getElementById('size-3').innerHTML = size_3;
 		document.getElementById('count-3').innerHTML = count_3.toString();
 
 		let totalCount = parseInt(count_1) + parseInt(count_2) + parseInt(count_3);
 		document.getElementById('total-count').innerHTML = "총 주문 상품 "+ totalCount.toString()+"개";
 		
-		let calculate_total = parseInt(count_1)*parseInt(a_price) + parseInt(count_2)*parseInt(b_price) + parseInt(count_3)*parseInt(c_price);
+		let calculate_total = parseInt(count_1)*parseInt(price_1) + parseInt(count_2)*parseInt(price_2) + parseInt(count_3)*parseInt(price_3);
 		document.getElementById('calculate-total').innerHTML = formatPrice(calculate_total) + ' + '+ formatPrice(3000) + ' = ' +  formatPrice(calculate_total+3000);
 		
 		let userStatus = GetCookie('userStatus');
@@ -358,7 +358,9 @@
 
 			document.getElementById(`count-${rowNumber}`).innerHTML = new_count;
 			document.getElementById(`size-${rowNumber}`).innerHTML = new_size;
-			document.getElementById(`total-price-${rowNumber}`).innerHTML = formatPrice(a_price * new_count);
+			if (rowNumber == 1) document.getElementById(`total-price-${rowNumber}`).innerHTML = formatPrice(price_1 * new_count);
+			else if (rowNumber == 2) document.getElementById(`total-price-${rowNumber}`).innerHTML = formatPrice(price_2 * new_count);
+			else if (rowNumber == 3) document.getElementById(`total-price-${rowNumber}`).innerHTML = formatPrice(price_3 * new_count);
 			
 
 			let new_count_1 = window.localStorage.getItem(`count_1`); 
@@ -368,7 +370,7 @@
 			let totalCount = parseInt(new_count_1) + parseInt(new_count_2) + parseInt(new_count_3);
 			document.getElementById('total-count').innerHTML = "총 주문 상품 "+ totalCount.toString()+"개";
 			
-			let calculate_total = parseInt(new_count_1)*parseInt(a_price) + parseInt(new_count_2)*parseInt(b_price) + parseInt(new_count_3)*parseInt(c_price);
+			let calculate_total = parseInt(new_count_1)*parseInt(price_1) + parseInt(new_count_2)*parseInt(price_2) + parseInt(new_count_3)*parseInt(price_3);
 			document.getElementById('calculate-total').innerHTML = formatPrice(calculate_total) + ' + '+ formatPrice(3000) + ' = ' +  formatPrice(calculate_total+3000);
 			}
 
