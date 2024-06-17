@@ -207,12 +207,13 @@
             // 카드 높이 확장
             document.querySelector(".card_aboutus").style.maxHeight = "800px";
         }
-
+        //지도 버튼 눌렀을 경우
         document.getElementById("geo-button").addEventListener("click", function() {
+            //geo만 active로
 			document.getElementById("ig-button").classList.remove("active");
 			document.getElementById("call-button").classList.remove("active");
-
 			document.getElementById("geo-button").classList.add("active");
+            //geo만 흰색
 			document.getElementById("ig-icon").style.filter = "invert(0%)";
 			document.getElementById("geo-icon").style.filter = "invert(100%)";
 			document.getElementById("call-icon").style.filter = "invert(0%)";
@@ -222,34 +223,43 @@
             showMap(lat, lon, acc);
         });
 
+        //인스타그램 버튼 눌렀을 경우
         document.getElementById("ig-button").addEventListener("click", function() {
+            //
 			document.getElementById("geo-button").classList.remove("active");
 			document.getElementById("call-button").classList.remove("active");
-
 			document.getElementById("ig-button").classList.add("active");
+            //
 			document.getElementById("ig-icon").style.filter = "invert(100%)";
 			document.getElementById("geo-icon").style.filter = "invert(0%)";
 			document.getElementById("call-icon").style.filter = "invert(0%)";
             document.getElementById("msg").innerHTML = "<a href='https://www.instagram.com/sookmyung_womens_univ/' target='_blank'>@sookmyung_womens_univ</a>";
 			document.getElementById("msg").style.href = "https://www.instagram.com/sookmyung_womens_univ/";
+
+            //지도hidden
             let map = document.getElementById("map");
             map.style.visibility = "hidden";
             // 카드 높이 축소
-            document.querySelector(".card_aboutus").style.maxHeight = "250px"; // 적절한 높이로 설정
+            document.querySelector(".card_aboutus").style.maxHeight = "250px"; 
         });
-		
+
+		//전화 버튼 눌렀을 경우
 		document.getElementById("call-button").addEventListener("click", function() {
+            //전화만 active
 			document.getElementById("ig-button").classList.remove("active");
 			document.getElementById("geo-button").classList.remove("active");
 			document.getElementById("call-button").classList.add("active");
+            //전화만 아이콘 흰색으로 
 			document.getElementById("ig-icon").style.filter = "invert(0%)";
 			document.getElementById("geo-icon").style.filter = "invert(0%)";
 			document.getElementById("call-icon").style.filter = "invert(100%)";
             document.getElementById("msg").innerHTML = "02-710-9114<br>";
+
+            //지도 hidden
             let map = document.getElementById("map");
             map.style.visibility = "hidden";
             // 카드 높이 축소
-            document.querySelector(".card_aboutus").style.maxHeight = "250px"; // 적절한 높이로 설정
+            document.querySelector(".card_aboutus").style.maxHeight = "250px"; 
         });
 
 		document.getElementById("aboutus").addEventListener("click", function() {
@@ -261,10 +271,12 @@
 			document.getElementById("geo-icon").style.filter = "invert(0%)";
 			document.getElementById("call-icon").style.filter = "invert(0%)";
             document.getElementById("msg").innerHTML = "";
+
+            //지도 hidden
             let map = document.getElementById("map");
             map.style.visibility = "hidden";
             // 카드 높이 축소
-            document.querySelector(".card_aboutus").style.maxHeight = "220px"; // 적절한 높이로 설정
+            document.querySelector(".card_aboutus").style.maxHeight = "220px";
         });
     </script>
 

@@ -126,7 +126,7 @@
 			<div class="box_header_white border border-2 rounded-2">
 				<h1 align="center">T-SHIRTS</h1>
 			<nav>
-				<ul class="nav nav-underline justify-content-center"">
+				<ul class="nav nav-underline justify-content-center">
 					<li class="nav-item">
 					  <a class="nav-link link-dark" href="store.html">STORE</a>
 					</li>
@@ -154,10 +154,10 @@
                     <thead>
                       <tr>
                         <th scope="col">
-                            상품 정보
+                            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;상품 정보
                         </th>
                         <th scope="col">수량</th>
-                        <th scope="col">주문금액</th>
+                        <th scope="col"  class="text-center">주문금액</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -166,58 +166,75 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col">
-                                        <img src="image/nirvana_tshirt.jpg" style="width: 100px;" class="card">
+                                        <img id="image-1" style="width: 100px;" class="card">
                                     </div>
                                     <div class="col">
-                                        너바나 티셔츠
+                                        <div class="row"  id="name-1"></div>
+										<div class="row"  id="price-1"></div>
+										<div class="row"  id="size-1"></div>
                                     </div>
                                 </div>
                             </div>
                         </td>
-                        <td>1</td>
-                        <td>24,000</td>
+                        <td id="count-1"><br></td>
+                        <td class="text-center">
+							<div id="total-price-1"></div>
+							<button class="btn btn-light mt-5" id="changeOption1" onclick="changeOption(1)">옵션 변경</button>
+						</td>
+						
                       </tr>
                       <tr>
                         <td>
                             <div class="container">
                                 <div class="row">
                                     <div class="col">
-                                        <img src="image/nirvana_tshirt.jpg" style="width: 100px;" class="card">
+                                        <img id="image-2" style="width: 100px;" class="card">
                                     </div>
                                     <div class="col">
-                                        너바나 티셔츠
+                                        <div class="row"  id="name-2"></div>
+										<div class="row"  id="price-2"></div>
+										<div class="row"  id="size-2"></div>
+										
                                     </div>
                                 </div>
                             </div>
                         </td>
-                        <td>1</td>
-                        <td>24,000</td>
+                        <td id="count-2">1</td>
+                        <td class="text-center">
+							<div id="total-price-2"></div>
+							<button class="btn btn-light mt-5" id="changeOption2">옵션 변경</button>
+						</td>
                       </tr>
                       <tr>
                         <td>
                             <div class="container">
                                 <div class="row">
                                     <div class="col">
-                                        <img src="image/nirvana_tshirt.jpg" style="width: 100px;" class="card">
+                                        <img id="image-3" style="width: 100px;" class="card">
                                     </div>
                                     <div class="col">
-                                        너바나 티셔츠
+                                        <div class="row"  id="name-3"></div>
+										<div class="row"  id="price-3"></div>
+										<div class="row"  id="size-3"></div>
                                     </div>
                                 </div>
                             </div>
                         </td>
-                        <td>1</td>
-                        <td>24,000</td>
+                        <td id="count-3"></td>
+                        <td class="text-center">
+							<div id="total-price-3"></div>
+							<button class="btn btn-light mt-5" id="changeOption3">옵션 변경</button>
+						</td>
                       </tr>
                     </tbody>
                   </table>
                   
                   <hr>
-                  <div>총 주문 상품 1개</div>
+                  <div id="total-count" class="mb-3"></div>
                   <hr>
-                  <div class="text-center">
-                    24,000원 + 3,000원 = 27,000원
-                  </div>
+                  <h4 class="text-center mb-5 mt-4 fw-light" id="calculate-total">
+                    
+				  </h4>
                   <hr>
                   <div class="d-grid gap-2 col-6 mx-auto">
                     <button class="btn btn-dark mb-3" type="button">주문하기</button>
@@ -243,6 +260,65 @@
 		</footer>
 	  </div>
 	  <script>
+		window.localStorage.setItem('count_1', '1');
+		window.localStorage.setItem('size_1', 'S');
+		window.localStorage.setItem('count_2', '2');
+		window.localStorage.setItem('size_2', 'L');
+		window.localStorage.setItem('count_3', '1');
+		window.localStorage.setItem('size_3', 'M');
+
+		// getItem
+		let a_name = window.localStorage.getItem('a_name');
+		let a_price = window.localStorage.getItem('a_price'); 
+		let a_img = window.localStorage.getItem('a_img'); 
+		let count_1 = window.localStorage.getItem('count_1'); 
+		let size_1 = window.localStorage.getItem('size_1');
+
+
+		let b_name = window.localStorage.getItem('b_name');
+		let b_price = window.localStorage.getItem('b_price'); 
+		let b_img = window.localStorage.getItem('b_img'); 
+		let count_2 = window.localStorage.getItem('count_2');
+		let size_2 = window.localStorage.getItem('size_2');
+
+		let c_name = window.localStorage.getItem('c_name');
+		let c_price = window.localStorage.getItem('c_price'); 
+		let c_img = window.localStorage.getItem('c_img');
+		let count_3 = window.localStorage.getItem('count_3');
+		let size_3 = window.localStorage.getItem('size_3');
+		
+		function formatPrice(price) {
+        return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '원';
+    }
+
+		// 결과 출력
+		document.getElementById("image-1").src = a_img;
+		document.getElementById("price-1").innerHTML = formatPrice(a_price);
+		document.getElementById("name-1").innerHTML = a_name;
+		document.getElementById("total-price-1").innerHTML = formatPrice(parseInt(a_price)*parseInt(count_1));
+		document.getElementById('size-1').innerHTML = size_1;
+		document.getElementById('count-1').innerHTML = count_1.toString();
+
+		document.getElementById("image-2").src = b_img;
+		document.getElementById("price-2").innerHTML = formatPrice(b_price);
+		document.getElementById("name-2").innerHTML = b_name;
+		document.getElementById("total-price-2").innerHTML = formatPrice(parseInt(b_price)*parseInt(count_2));
+		document.getElementById('size-2').innerHTML = size_2;
+		document.getElementById('count-2').innerHTML = count_2.toString();
+
+		document.getElementById("image-3").src = c_img;
+		document.getElementById("price-3").innerHTML = formatPrice(c_price);
+		document.getElementById("name-3").innerHTML = c_name;
+		document.getElementById("total-price-3").innerHTML = formatPrice(parseInt(c_price)*parseInt(count_3));
+		document.getElementById('size-3').innerHTML = size_3;
+		document.getElementById('count-3').innerHTML = count_3.toString();
+
+		let totalCount = parseInt(count_1) + parseInt(count_2) + parseInt(count_3);
+		document.getElementById('total-count').innerHTML = "총 주문 상품 "+ totalCount.toString()+"개";
+		
+		let calculate_total = parseInt(count_1)*parseInt(a_price) + parseInt(count_2)*parseInt(b_price) + parseInt(count_3)*parseInt(c_price);
+		document.getElementById('calculate-total').innerHTML = formatPrice(calculate_total) + ' + '+ formatPrice(3000) + ' = ' +  formatPrice(calculate_total+3000);
+		
 		let userStatus = GetCookie('userStatus');
 		
 
@@ -259,6 +335,43 @@
 				location.href = 'mypage.html';
 			};
 		}
+
+		function changeOption(rowNumber) {
+			// 수량 입력받기
+			let newCount = prompt("수량을 입력하세요:", "");
+			if (newCount === null || newCount === "" || isNaN(newCount) || newCount <= 0) {
+				alert("유효한 수량을 입력하세요.");
+				return;
+			}
+			
+			// 사이즈 입력받기
+			let newSize = prompt("사이즈를 입력하세요 (S, M, L, XL):", "");
+			if (newSize === null || newSize === "" || !["S", "M", "L", "XL", "2XL"].includes(newSize.toUpperCase())) {
+				alert("유효한 사이즈를 입력하세요 (S, M, L, XL).");
+				return;
+			}
+			window.localStorage.setItem(`count_${rowNumber}`, newCount);
+			window.localStorage.setItem(`size_${rowNumber}`, newSize.toUpperCase());
+			
+			let new_count = window.localStorage.getItem(`count_${rowNumber}`); 
+			let new_size = window.localStorage.getItem(`size_${rowNumber}`); 
+
+			document.getElementById(`count-${rowNumber}`).innerHTML = new_count;
+			document.getElementById(`size-${rowNumber}`).innerHTML = new_size;
+			document.getElementById(`total-price-${rowNumber}`).innerHTML = formatPrice(a_price * new_count);
+			
+
+			let new_count_1 = window.localStorage.getItem(`count_1`); 
+			let new_count_2 = window.localStorage.getItem(`count_2`); 
+			let new_count_3 = window.localStorage.getItem(`count_3`); 
+
+			let totalCount = parseInt(new_count_1) + parseInt(new_count_2) + parseInt(new_count_3);
+			document.getElementById('total-count').innerHTML = "총 주문 상품 "+ totalCount.toString()+"개";
+			
+			let calculate_total = parseInt(new_count_1)*parseInt(a_price) + parseInt(new_count_2)*parseInt(b_price) + parseInt(new_count_3)*parseInt(c_price);
+			document.getElementById('calculate-total').innerHTML = formatPrice(calculate_total) + ' + '+ formatPrice(3000) + ' = ' +  formatPrice(calculate_total+3000);
+			}
+
 </script>
 </body>
 </html>

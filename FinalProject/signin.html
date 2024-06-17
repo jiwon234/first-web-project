@@ -214,27 +214,6 @@
             </div>
         </div>
     </div>
-	<script>
-		document.addEventListener('DOMContentLoaded', function() {
-			document.getElementById('signup-form').addEventListener('submit', function(event) {
-				event.preventDefault(); // 폼의 기본 동작을 막음
-	
-				// 입력 필드 가져오기
-				var password = document.getElementById('password').value.trim();
-				var confirmPassword = document.getElementById('confirmPassword').value.trim();
-				var name = document.getElementById('name').value.trim();
-
-				if (password !== confirmPassword) {
-					alert('비밀번호와 비밀번호 확인이 일치하지 않습니다.');
-					return;
-				}
-				// 모든 유효성 검사 통과 시 폼을 서버로 제출할 수 있음
-				this.submit();
-				alert('안녕하세요 '+name+'님 환영합니다!');
-				location.href="login.html";
-			});
-		});
-	</script>
 	<div class="container">
 		<footer class="py-3 my-4">
 		  <ul class="nav justify-content-center border-bottom pb-3 mb-3">
@@ -264,6 +243,23 @@
 				location.href = 'mypage.html';
 			};
 		}
+</script>
+<script>
+	document.getElementById('signup-form').addEventListener('submit', function(event) {
+		event.preventDefault();
+
+		let password = document.getElementById('password').value.trim();
+		let confirmPassword = document.getElementById('confirmPassword').value.trim();
+		let name = document.getElementById('name').value.trim();
+
+		if (password !== confirmPassword) {
+			alert('비밀번호와 비밀번호 확인이 일치하지 않습니다.');
+			return;
+		}
+		this.submit();
+		alert('안녕하세요 '+name+'님 환영합니다!');
+		location.href="login.html";
+	});
 </script>
 </body>
 </html>

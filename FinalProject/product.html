@@ -152,7 +152,7 @@
                                 배송 방법: 택배<br>
                                 배송비 3,000원 | 도서 산간 배송비 추가 
                                 <hr>
-								<form onsubmit="return validateAndStoreForm()">
+								<form onsubmit="return toOrder()">
 									<select id="size" class="form-select" aria-label="Default select example" required>
 										<option selected disabled value="">사이즈</option>
 										<option value="S">S</option>
@@ -349,8 +349,7 @@
 
 	</script>
 	<script>
-		function validateAndStoreForm() {
-			// Get the form elements
+		function toOrder() {
 			const size = document.getElementById('size').value;
 			const number = document.getElementById('number').value;
 	
